@@ -4,6 +4,7 @@ import Banner from './BannerItem';
 import { useTheme } from '@mui/system';
 import { Button, useMediaQuery } from '@mui/material';
 import BannerItem from './BannerItem';
+import { Banner_1, Banner_2 } from '../../assets/Image';
 
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -28,6 +29,22 @@ function SamplePrevArrow(props) {
 }
 
 export default function CarouselBanner() {
+    const data = [
+        {
+            id: 1,
+            title: 'Save The Environment',
+            BannerPicture: Banner_1,
+            description:
+                'We need to start changing the world today, not tomorrow. We need to take action and stop complaining about the bad things currently',
+        },
+        {
+            id: 2,
+            title: 'Use eco-friendly products',
+            BannerPicture: Banner_2,
+            description:
+                'Are you trying to be green and eco-friendly, but do not know how you can save the environment is resources? Please reuse recyclable waste',
+        },
+    ];
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const settings = {
@@ -43,9 +60,9 @@ export default function CarouselBanner() {
     return (
         <div>
             <Slider {...settings}>
-                <BannerItem />
-                <BannerItem />
-                <BannerItem />
+                {data.map((item) => (
+                    <BannerItem key={item.id} data={item} />
+                ))}
             </Slider>
         </div>
     );

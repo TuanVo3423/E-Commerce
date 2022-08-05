@@ -1,6 +1,5 @@
 import React from 'react';
 import { Fragment } from 'react';
-import { logo } from '../../../../assets/Image';
 import {
     AppBar,
     ListItemIcon,
@@ -24,9 +23,9 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import BakeryDiningOutlinedIcon from '@mui/icons-material/BakeryDiningOutlined';
 import AbcOutlinedIcon from '@mui/icons-material/AbcOutlined';
-import StarBorder from '@mui/icons-material/StarBorder';
 import InfoIcon from '@mui/icons-material/Info';
 import LoginIcon from '@mui/icons-material/Login';
+import { Logo } from '../../../assets/Image';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 
 export default function Header() {
@@ -98,7 +97,7 @@ export default function Header() {
             <AppBar className="bg-white h-20">
                 <Toolbar>
                     <div className="h-full w-40 bg-cover ">
-                        <img className="h-full w-full" src={logo} alt={'logo'}></img>
+                        <Logo className="h-full w-full object-cover" />
                     </div>
                     {!matches ? (
                         <Fragment>
