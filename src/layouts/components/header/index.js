@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import './header.css';
 import { Fragment } from 'react';
 import {
     AppBar,
@@ -27,14 +28,35 @@ import InfoIcon from '@mui/icons-material/Info';
 import LoginIcon from '@mui/icons-material/Login';
 import { Logo } from '../../../assets/Image';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import { Link } from 'react-router-dom';
+import routes from '../../../configs/routes';
 
 export default function Header() {
+    const [isHoverCategories, setIsHoverCategories] = useState(false);
     const [open, setOpen] = React.useState(false);
 
     const handleClick = () => {
         setOpen(!open);
     };
-    const data = ['Home', 'Straws', 'Cups', 'Others', 'About us'];
+    const data = [
+        {
+            title: 'Home',
+            link: routes.home,
+        },
+        {
+            title: 'Categories',
+            link: routes.categories,
+        },
+        {
+            title: 'Others',
+            link: routes.others,
+        },
+        {
+            title: 'About us',
+            link: routes.aboutUs,
+        },
+    ];
     const dataMenu = [
         {
             icon: CloseIcon,
@@ -71,11 +93,11 @@ export default function Header() {
             title: 'Others',
         },
     ];
+
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('md'));
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = React.useState('Home');
     const [openDraw, setOpenDraw] = React.useState(false);
-
     const handleOpenDraw = () => {
         setOpenDraw(true);
     };
@@ -85,6 +107,36 @@ export default function Header() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const handleMouse = (event) => {
+        if (event.target.className.includes('Categories')) {
+            setIsHoverCategories(true);
+        } else {
+            setIsHoverCategories(false);
+        }
+    };
+    const handleMouseOver = (event) => {
+        if (!event.target.className.includes('Categories')) {
+            setIsHoverCategories(false);
+        }
+    };
+    const handle = () => {
+        setIsHoverCategories(false);
+    };
+    // useEffect(() => {
+    //     if (value === 'Categories') {
+    //         setIsHoverCategories(true);
+    //     } else {
+    //         setIsHoverCategories(false);
+    //     }
+    // }, [value]);
+    const checkCategories = (item) => {
+        if (item === 'Categories') {
+            return 'Categories px-12 font-semibold';
+        } else {
+            return 'px-12 font-semibold';
+        }
+    };
+
     const outerTheme = createTheme({
         palette: {
             primary: {
@@ -95,14 +147,54 @@ export default function Header() {
     return (
         <ThemeProvider theme={outerTheme}>
             <AppBar className="bg-white h-20">
-                <Toolbar>
-                    <div className="h-full w-40 bg-cover ">
+                <Toolbar className="relative">
+                    <div className="h-full w-40 bg-cover">
+                        <div
+                            onMouseLeave={handle}
+                            className="absolute headerCategories border-solid border-t-2 border-green-500 flex items-center text-black  bg-white left-0 top-full w-full h-32"
+                            style={{ display: isHoverCategories ? 'flex' : 'none' }}
+                        >
+                            <div className="w-1/2 m-auto flex flex-row flex-wrap ">
+                                <div className="flex w-1/4">
+                                    <AcUnitIcon />
+                                    <p className="text-lg ml-1 font-medium">Bàn chải</p>
+                                </div>
+                                <div className="flex w-1/4">
+                                    <AcUnitIcon />
+                                    <p className="text-lg ml-1 font-medium">Bàn chải</p>
+                                </div>
+                                <div className="flex w-1/4">
+                                    <AcUnitIcon />
+                                    <p className="text-lg ml-1 font-medium">Bàn chải</p>
+                                </div>
+                                <div className="flex w-1/4">
+                                    <AcUnitIcon />
+                                    <p className="text-lg ml-1 font-medium">Bàn chải</p>
+                                </div>
+                                <div className="flex w-1/4">
+                                    <AcUnitIcon />
+                                    <p className="text-lg ml-1 font-medium">Bàn chải</p>
+                                </div>
+                                <div className="flex w-1/4">
+                                    <AcUnitIcon />
+                                    <p className="text-lg ml-1 font-medium">Bàn chải</p>
+                                </div>
+                                <div className="flex w-1/4">
+                                    <AcUnitIcon />
+                                    <p className="text-lg ml-1 font-medium">Bàn chải</p>
+                                </div>
+                                <div className="flex w-1/4">
+                                    <AcUnitIcon />
+                                    <p className="text-lg ml-1 font-medium">Bàn chải</p>
+                                </div>
+                            </div>
+                        </div>
                         <Logo className="h-full w-full object-cover" />
                     </div>
                     {!matches ? (
                         <Fragment>
                             <Tabs
-                                className=" m-auto"
+                                className="m-auto"
                                 value={value}
                                 onChange={handleChange}
                                 textColor="primary"
@@ -114,7 +206,16 @@ export default function Header() {
                                 }}
                             >
                                 {data.map((item, index) => (
-                                    <Tab key={index} className="px-12 font-semibold" label={item} />
+                                    <Tab
+                                        key={index}
+                                        value={item.title}
+                                        onMouseOver={handleMouse}
+                                        onMouseLeave={handleMouseOver}
+                                        to={item.link}
+                                        component={Link}
+                                        className={checkCategories(item.title)}
+                                        label={item.title}
+                                    />
                                 ))}
                             </Tabs>
                             <AddShoppingCartIcon className="text-black ml-auto" />
@@ -184,4 +285,7 @@ export default function Header() {
             </AppBar>
         </ThemeProvider>
     );
+}
+{
+    /*  */
 }

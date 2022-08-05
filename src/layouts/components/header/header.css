@@ -1,0 +1,16 @@
+.headerCategories:hover {
+    cursor: pointer;
+}
+.headerCategories {
+    animation: modalFadeIn ease 0.25s;
+}
+@keyframes modalFadeIn {
+    from {
+        top: 50%;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        top: 100%;
+    }
+}

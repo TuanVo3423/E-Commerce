@@ -1,7 +1,6 @@
 const routes = {
     home: '/',
-    straws: '/straws',
-    cups: '/cups',
+    categories: '/categories',
     others: '/others',
     aboutUs: '/aboutUs',
 };
