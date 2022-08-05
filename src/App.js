@@ -3,6 +3,8 @@ import MainLayout from './components/layouts/MainLayout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
 import { createTheme } from '@mui/material/styles';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 let theme = createTheme({
     palette: {
         primary: {

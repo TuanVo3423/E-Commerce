@@ -1,7 +1,11 @@
 import React from 'react'
+import SliderItem from '../../Slider/SliderItem'
+import SlideProducts from '../../Slider'
 
 export default function Straws() {
   return (
-    <div>Straws</div>
+    <div className=''>
+      <SlideProducts />
+    </div>
   )
 }

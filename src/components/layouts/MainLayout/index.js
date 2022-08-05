@@ -11,8 +11,8 @@ export default function MainLayout({ children }) {
     return (
         <div className={cx('wrapper')}>
             <Header />
-
-            <div className='mt-20'>{children}</div>
+            <div className="mt-20 w-full flex flex-col">{children}</div>
+            {/* body */}
             <div className={cx('footer')}>
                 <Footer />
             </div>

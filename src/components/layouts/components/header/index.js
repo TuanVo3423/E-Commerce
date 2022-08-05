@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fragment } from 'react';
 import { logo } from '../../../../assets/Image';
 import {
     AppBar,
@@ -94,13 +95,13 @@ export default function Header() {
     });
     return (
         <ThemeProvider theme={outerTheme}>
-            <AppBar className="bg-transparent h-20">
+            <AppBar className="bg-white h-20">
                 <Toolbar>
                     <div className="h-full w-40 bg-cover ">
                         <img className="h-full w-full" src={logo} alt={'logo'}></img>
                     </div>
                     {!matches ? (
-                        <>
+                        <Fragment>
                             <Tabs
                                 className=" m-auto"
                                 value={value}
@@ -119,9 +120,9 @@ export default function Header() {
                             </Tabs>
                             <AddShoppingCartIcon className="text-black ml-auto" />
                             <LoginIcon className="text-black ml-5" />
-                        </>
+                        </Fragment>
                     ) : (
-                        <>
+                        <Fragment>
                             <MenuIcon onClick={handleOpenDraw} className="text-black ml-auto" />
 
                             <Drawer
@@ -140,7 +141,7 @@ export default function Header() {
                                 >
                                     {dataMenu.map((item, index) => {
                                         return (
-                                            <>
+                                            <Fragment key={index}>
                                                 {item.hasSub ? (
                                                     <>
                                                         <ListItemButton key={index} onClick={handleClick}>
@@ -173,12 +174,12 @@ export default function Header() {
                                                         <ListItemText primary={item.title} />
                                                     </ListItemButton>
                                                 )}
-                                            </>
+                                            </Fragment>
                                         );
                                     })}
                                 </List>
                             </Drawer>
-                        </>
+                        </Fragment>
                     )}
                 </Toolbar>
             </AppBar>
