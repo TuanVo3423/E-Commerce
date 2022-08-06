@@ -9,13 +9,13 @@ export default function Home() {
     return (
         // Khung cua Carousel
         <React.Fragment>
-            <div className="w-full">
+            <div>
                 <CarouselBanner />
             </div>
             <div className="w-full h-full">
                 <Slider />
             </div>
-            <div className="w-full h-full">
+            <div>
                 <FeaturedProducts />
             </div>
             <div className="w-full h-full">
