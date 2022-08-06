@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
-export default function MainLayout({ children }) {
+export default function MainLayout({ children, path }) {
     // Header , Slide , slick slider , Hot product , Related Product , Footer
     // Header , Card , Sidebar , List Product , footer
     // Header , Card display info , input form , footer
     return (
         <div className="h-full w-full flex flex-col items-center overflow-x-hidden">
-            <Header />
+            <Header path={path} />
             {/* body */}
             <div className="mt-20 w-full flex flex-col">{children}</div>
             <Footer />

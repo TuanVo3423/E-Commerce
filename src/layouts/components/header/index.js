@@ -32,81 +32,83 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import { Link } from 'react-router-dom';
 import routes from '../../../configs/routes';
 
-export default function Header() {
+const data = [
+    {
+        title: 'Home',
+        link: routes.home,
+    },
+    {
+        title: 'Categories',
+        link: routes.categories,
+    },
+    {
+        title: 'Others',
+        link: routes.others,
+    },
+    {
+        title: 'About us',
+        link: routes.aboutUs,
+    },
+];
+const dataMenu = [
+    {
+        icon: CloseIcon,
+        title: 'Menu',
+        hasSub: false,
+    },
+    {
+        icon: HomeIcon,
+        title: 'Home',
+        hasSub: false,
+    },
+    {
+        icon: CategoryIcon,
+        title: 'Categories',
+        hasSub: true,
+    },
+    {
+        icon: InfoIcon,
+        title: 'About Us',
+        hasSub: false,
+    },
+];
+const dataSubMenu = [
+    {
+        icon: BakeryDiningOutlinedIcon,
+        title: 'Straws',
+    },
+    {
+        icon: CoffeeIcon,
+        title: 'Cups',
+    },
+    {
+        icon: AbcOutlinedIcon,
+        title: 'Others',
+    },
+];
+export default function Header({ path }) {
     const [isHoverCategories, setIsHoverCategories] = useState(false);
     const [open, setOpen] = React.useState(false);
-
-    const handleClick = () => {
-        setOpen(!open);
-    };
-    const data = [
-        {
-            title: 'Home',
-            link: routes.home,
-        },
-        {
-            title: 'Categories',
-            link: routes.categories,
-        },
-        {
-            title: 'Others',
-            link: routes.others,
-        },
-        {
-            title: 'About us',
-            link: routes.aboutUs,
-        },
-    ];
-    const dataMenu = [
-        {
-            icon: CloseIcon,
-            title: 'Menu',
-            hasSub: false,
-        },
-        {
-            icon: HomeIcon,
-            title: 'Home',
-            hasSub: false,
-        },
-        {
-            icon: CategoryIcon,
-            title: 'Categories',
-            hasSub: true,
-        },
-        {
-            icon: InfoIcon,
-            title: 'About Us',
-            hasSub: false,
-        },
-    ];
-    const dataSubMenu = [
-        {
-            icon: BakeryDiningOutlinedIcon,
-            title: 'Straws',
-        },
-        {
-            icon: CoffeeIcon,
-            title: 'Cups',
-        },
-        {
-            icon: AbcOutlinedIcon,
-            title: 'Others',
-        },
-    ];
-
+    const [openDraw, setOpenDraw] = React.useState(false);
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('md'));
-    const [value, setValue] = React.useState('Home');
-    const [openDraw, setOpenDraw] = React.useState(false);
+    const outerTheme = createTheme({
+        palette: {
+            primary: {
+                main: '#2f9e44',
+            },
+        },
+    });
+    const handleClickExpandSubMenu = () => {
+        setOpen(!open);
+    };
     const handleOpenDraw = () => {
         setOpenDraw(true);
     };
     const handleCloseMenu = () => {
         setOpenDraw(false);
     };
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+
     const handleMouse = (event) => {
         if (event.target.className.includes('Categories')) {
             setIsHoverCategories(true);
@@ -119,16 +121,9 @@ export default function Header() {
             setIsHoverCategories(false);
         }
     };
-    const handle = () => {
+    const handleMouseWhenLeave = () => {
         setIsHoverCategories(false);
     };
-    // useEffect(() => {
-    //     if (value === 'Categories') {
-    //         setIsHoverCategories(true);
-    //     } else {
-    //         setIsHoverCategories(false);
-    //     }
-    // }, [value]);
     const checkCategories = (item) => {
         if (item === 'Categories') {
             return 'Categories px-12 font-semibold';
@@ -137,20 +132,13 @@ export default function Header() {
         }
     };
 
-    const outerTheme = createTheme({
-        palette: {
-            primary: {
-                main: '#2f9e44',
-            },
-        },
-    });
     return (
         <ThemeProvider theme={outerTheme}>
             <AppBar className="bg-white h-20">
                 <Toolbar className="relative">
                     <div className="h-full w-40 bg-cover">
                         <div
-                            onMouseLeave={handle}
+                            onMouseLeave={handleMouseWhenLeave}
                             className="absolute headerCategories border-solid border-t-2 border-green-500 flex items-center text-black  bg-white left-0 top-full w-full h-32"
                             style={{ display: isHoverCategories ? 'flex' : 'none' }}
                         >
@@ -195,8 +183,7 @@ export default function Header() {
                         <Fragment>
                             <Tabs
                                 className="m-auto"
-                                value={value}
-                                onChange={handleChange}
+                                value={path}
                                 textColor="primary"
                                 TabIndicatorProps={{
                                     style: {
@@ -244,7 +231,7 @@ export default function Header() {
                                             <Fragment key={index}>
                                                 {item.hasSub ? (
                                                     <>
-                                                        <ListItemButton key={index} onClick={handleClick}>
+                                                        <ListItemButton key={index} onClick={handleClickExpandSubMenu}>
                                                             <ListItemIcon>
                                                                 <HomeIcon />
                                                             </ListItemIcon>
