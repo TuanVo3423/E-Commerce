@@ -1,11 +1,7 @@
 import { Button } from '@mui/material';
-import { motion } from 'framer-motion';
 import React from 'react';
 
-export default function DonateHome() {
-    // initial={{ opacity: 0, y: -0, x: -400 }}
-    //                     whileInView={{ opacity: 1, y: -100, x: -400 }}
-    //                     transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
+export default function DonateSection() {
     return (
         <div
             className="w-full h-full bg-no-repeat bg-cover bg-center bg-fixed text-white"

@@ -1,6 +1,10 @@
 import React from 'react';
 import CarouselBanner from '../../components/Banner';
+import MissionSection from '../../components/MissionSection';
+import DataDonation from '../../components/DataDonation';
+import DonateSection from '../../components/DonateSection';
 import { BannerDonate_1, sliderDonate_2 } from '../../assets/Image';
+import { maxHeight } from '@mui/system';
 const data = [
     {
         id: 1,
@@ -23,6 +27,15 @@ export default function Donation() {
         <div>
             <div>
                 <CarouselBanner data={data} isBannerDonation />
+            </div>
+            <div>
+                <MissionSection />
+            </div>
+            <div>
+                <DataDonation />
+            </div>
+            <div>
+                <DonateSection />
             </div>
         </div>
     );
