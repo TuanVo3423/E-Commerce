@@ -7,6 +7,36 @@ export const Logo = ({ className }) => {
         ></img>
     );
 };
+export const PrevIcon = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256">
+            <rect width="256" height="256" fill="none"></rect>
+            <polyline
+                points="160 208 80 128 160 48"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+            ></polyline>
+        </svg>
+    );
+};
+export const NextvIcon = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256">
+            <rect width="256" height="256" fill="none"></rect>
+            <polyline
+                points="96 48 176 128 96 208"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+            ></polyline>
+        </svg>
+    );
+};
 export const Banner_1 = ({ className }) => {
     return (
         <img
@@ -18,6 +48,24 @@ export const Banner_1 = ({ className }) => {
 };
 export const Banner_2 = ({ className }) => {
     return <img className={className} alt="Banner" src="https://bwd2022.vercel.app/assets/banner-3.jpeg"></img>;
+};
+export const BannerDonate_1 = ({ className }) => {
+    return (
+        <img
+            className={className}
+            src="http://charity-is-hope-html.themerex.net/images/slider_1_3.jpg"
+            alt="Banner1"
+        ></img>
+    );
+};
+export const sliderDonate_2 = ({ className }) => {
+    return (
+        <img
+            className={className}
+            src="http://charity-is-hope-html.themerex.net/images/slider_1_2.jpg"
+            alt="Banner2"
+        ></img>
+    );
 };
 export const RiceStraws =
     'https://firebasestorage.googleapis.com/v0/b/bwdd-3dc88.appspot.com/o/images%2FOng-hut-bot-gao-0?alt=media&token=5f37b297-a09a-4001-b53f-9e5340784f00';

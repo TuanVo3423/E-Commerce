@@ -1,7 +1,7 @@
 const routes = {
     home: '/',
     categories: '/categories',
-    others: '/others',
+    donation: '/donation',
     aboutUs: '/aboutUs',
 };
 export default routes;

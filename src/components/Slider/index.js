@@ -1,9 +1,10 @@
 import React from 'react';
 import Slider from 'react-slick';
-import SliderItem from './SliderItem';
-import ProductsAtHome from '../ProductsAtHome';
 import { RiceStraws } from '../../assets/Image';
 import ProductItem from '../ProductsAtHome/ProductItem';
+import { PrevIcon } from '../../assets/Image';
+import { NextvIcon } from '../../assets/Image';
+
 const data = [
     {
         id: 1,
@@ -63,24 +64,56 @@ const data = [
     },
 ];
 function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
+    const { style, onClick } = props;
     return (
         <div
-            className={className}
-            style={{ ...style, display: 'block', marginRight: '20px', zIndex: '30' }}
+            style={{
+                ...style,
+                position: 'absolute',
+                borderRadius: '50%',
+                top: '50%',
+                left: '-4%',
+                background: '#fff',
+                color: 'black',
+                transition: 'all .25s ease',
+                boxShadow: '#00000040 0 0 24px',
+                fontSize: '44px',
+                transform: 'translateY(-50%)',
+                display: 'block',
+                marginRight: '0',
+                zIndex: '30',
+            }}
             onClick={onClick}
-        />
+        >
+            <PrevIcon />
+        </div>
     );
 }
 
 function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
+    const { style, onClick } = props;
     return (
         <div
-            className={className}
-            style={{ ...style, display: 'block', marginLeft: '20px', zIndex: '30' }}
+            style={{
+                ...style,
+                position: 'absolute',
+                borderRadius: '50%',
+                top: '50%',
+                right: '-3%',
+                background: '#fff',
+                color: 'black',
+                transition: 'all .25s ease',
+                boxShadow: '#00000040 0 0 24px',
+                fontSize: '44px',
+                transform: 'translateY(-50%)',
+                display: 'block',
+                marginRight: '0',
+                zIndex: '30',
+            }}
             onClick={onClick}
-        />
+        >
+            <NextvIcon />
+        </div>
     );
 }
 
@@ -91,14 +124,10 @@ export default function SlideProducts() {
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 3,
-        // mobileFirst: true,
-        // fade: true,
-        // slide: '> div',
         adaptiveHeight: true,
-        // cssEase: 'linear',
         variableWidth: true,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
+        nextArrow: <SamplePrevArrow />,
+        prevArrow: <SampleNextArrow />,
         responsive: [
             {
                 breakpoint: 1024,

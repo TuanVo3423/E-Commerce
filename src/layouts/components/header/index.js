@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './header.css';
 import { Fragment } from 'react';
 import {
@@ -42,8 +42,8 @@ const data = [
         link: routes.categories,
     },
     {
-        title: 'Others',
-        link: routes.others,
+        title: 'Donation',
+        link: routes.donation,
     },
     {
         title: 'About us',
@@ -274,5 +274,4 @@ export default function Header({ path }) {
     );
 }
 {
-    /*  */
 }

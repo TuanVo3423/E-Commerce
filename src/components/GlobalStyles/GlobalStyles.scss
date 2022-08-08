@@ -17,18 +17,12 @@ body {
     color: white;
 }
 .slideProducts .slick-prev::before {
-    content: '\2190';
-    font-size: 50px;
-    color: white;
-    background-color: rgb(0, 0, 0);
-    transition: all 0.25s ease;
+    content: '';
+    color: transparent;
 }
 .slideProducts .slick-next::before {
-    content: '→';
-    font-size: 50px;
-    color: white;
-    background-color: black;
-    transition: all 0.25s ease;
+    content: '';
+    color: transparent;
 }
 @media screen and (max-width: 600px) {
     .slideProducts .slick-prev {
@@ -50,4 +44,3 @@ body {
 .BannerHeight {
     height: calc(100vh - 80px);
 }
-
