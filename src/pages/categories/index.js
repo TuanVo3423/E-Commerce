@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProductItem from '../../components/ProductsAtHome/ProductItem';
-import { RiceStraws } from '../../assets/Image';
+import services from '../../services';
 import {
     Checkbox,
     Collapse,
@@ -8,79 +9,21 @@ import {
     FormGroup,
     List,
     ListItemButton,
-    ListItemIcon,
     ListItemText,
     Pagination,
     Stack,
 } from '@mui/material';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
-const data = [
-    {
-        id: 1,
-        title: 'Ống hút bột gạo',
-        productPicture: RiceStraws,
-        price: '3000',
-        tag: 'NEW',
-    },
-    {
-        id: 2,
-        title: 'Ống hút bột gạo',
-        productPicture: RiceStraws,
-        price: '1000',
-        tag: 'NEW',
-    },
-    {
-        id: 3,
-        title: 'Ống hút bột gạo',
-        productPicture: RiceStraws,
-        price: '7000',
-        tag: 'NEW',
-    },
-    {
-        id: 4,
-        title: 'Ống hút bột gạo',
-        productPicture: RiceStraws,
-        price: '3000',
-        tag: 'NEW',
-    },
-    {
-        id: 5,
-        title: 'Ống hút bột gạo',
-        productPicture: RiceStraws,
-        price: '3000',
-        tag: 'NEW',
-    },
-    {
-        id: 6,
-        title: 'Ống hút bột gạo',
-        productPicture: RiceStraws,
-        price: '3000',
-        tag: 'NEW',
-    },
-    {
-        id: 7,
-        title: 'Ống hút bột gạo',
-        productPicture: RiceStraws,
-        price: '3000',
-        tag: 'NEW',
-    },
-    {
-        id: 8,
-        title: 'Ống hút bột gạo',
-        productPicture: RiceStraws,
-        price: '3000',
-        tag: 'NEW',
-    },
-    {
-        id: 9,
-        title: 'Ống hút bột gạo',
-        productPicture: RiceStraws,
-        price: '3000',
-        tag: 'NEW',
-    },
-];
+const pageSize = 9;
 
 export default function Categories() {
+    // count : số lượng phần tử
+    const [pagination, setPagination] = useState({
+        count: 0,
+        from: 0,
+        to: pageSize,
+    });
+    const [data, setData] = useState([]);
     const [openFilterByCategories, setOpenFilterByCategories] = React.useState(true);
     const [openFilterByPrice, setOpenFilterByPrice] = React.useState(false);
     const [openFilterByLabel, setOpenFilterByLabel] = React.useState(false);
@@ -93,6 +36,19 @@ export default function Categories() {
     };
     const handleClickLabel = () => {
         setOpenFilterByLabel(!openFilterByLabel);
+    };
+    useEffect(() => {
+        services.getData({ from: pagination.from, to: pagination.to }).then((res) => {
+            setPagination({ ...pagination, count: res.count });
+            setData(res.data);
+            window.scrollTo(0, 0);
+        });
+    }, [pagination.from, pagination.to]);
+    const handlePageChange = (event, page) => {
+        const from = (page - 1) * pageSize;
+        const to = (page - 1) * pageSize + pageSize;
+        console.log(from, to);
+        setPagination({ ...pagination, from: from, to: to });
     };
     return (
         <div className="w-full h-full my-auto md:px-20 md:py-12 p-5">
@@ -163,7 +119,12 @@ export default function Categories() {
             </div>
             <div className="w-full mt-4">
                 <Stack className="w-1/2 mx-auto" spacing={2}>
-                    <Pagination className="flex flex-row justify-center" count={10} variant="outlined" />
+                    <Pagination
+                        className="flex flex-row justify-center"
+                        count={Math.ceil(pagination.count / pageSize)}
+                        variant="outlined"
+                        onChange={handlePageChange}
+                    />
                 </Stack>
             </div>
         </div>

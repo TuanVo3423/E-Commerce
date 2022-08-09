@@ -11,8 +11,9 @@ import {
     ListItemButton,
     ListItemText,
     Collapse,
+    ListItem,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 import HomeIcon from '@mui/icons-material/Home';
 import CoffeeIcon from '@mui/icons-material/Coffee';
@@ -30,7 +31,6 @@ import LoginIcon from '@mui/icons-material/Login';
 import { Logo } from '../../../assets/Image';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
-import { Link } from 'react-router-dom';
 import routes from '../../../configs/routes';
 
 const data = [
@@ -56,37 +56,46 @@ const dataMenu = [
         icon: CloseIcon,
         title: 'Menu',
         hasSub: false,
+        path: '#',
     },
     {
         icon: HomeIcon,
         title: 'Home',
         hasSub: false,
+        path: '/',
     },
     {
         icon: CategoryIcon,
         title: 'Categories',
         hasSub: true,
+        path: '/categories',
     },
+    {
+        icon: AbcOutlinedIcon,
+        title: 'Donation',
+        hasSub: false,
+        path: '/donation',
+    },
+
     {
         icon: InfoIcon,
         title: 'About Us',
         hasSub: false,
+        path: '/aboutUs',
     },
 ];
-const dataSubMenu = [
-    {
-        icon: BakeryDiningOutlinedIcon,
-        title: 'Straws',
-    },
-    {
-        icon: CoffeeIcon,
-        title: 'Cups',
-    },
-    {
-        icon: AbcOutlinedIcon,
-        title: 'Others',
-    },
-];
+// const dataSubMenu = [
+//     {
+//         icon: BakeryDiningOutlinedIcon,
+//         title: 'Straws',
+//         path: '/home',
+//     },
+//     {
+//         icon: CoffeeIcon,
+//         title: 'Cups',
+//         path: '/categories',
+//     },
+// ];
 export default function Header({ path }) {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -233,7 +242,7 @@ export default function Header({ path }) {
                                     {dataMenu.map((item, index) => {
                                         return (
                                             <Fragment key={index}>
-                                                {item.hasSub ? (
+                                                {/* {item.hasSub ? (
                                                     <>
                                                         <ListItemButton key={index} onClick={handleClickExpandSubMenu}>
                                                             <ListItemIcon>
@@ -246,25 +255,39 @@ export default function Header({ path }) {
                                                             <List component="div" disablePadding>
                                                                 {dataSubMenu.map((item, index) => {
                                                                     return (
-                                                                        <ListItemButton sx={{ pl: 4 }} key={index}>
-                                                                            <ListItemIcon>
-                                                                                <item.icon onClick={handleCloseMenu} />
-                                                                            </ListItemIcon>
-                                                                            <ListItemText primary={item.title} />
-                                                                        </ListItemButton>
+                                                                        <ListItem
+                                                                            to={item.path}
+                                                                            component={Link}
+                                                                            key={index}
+                                                                        >
+                                                                            <ListItemButton sx={{ pl: 4 }}>
+                                                                                <ListItemIcon>
+                                                                                    <item.icon
+                                                                                        onClick={handleCloseMenu}
+                                                                                    />
+                                                                                </ListItemIcon>
+                                                                                <ListItemText primary={item.title} />
+                                                                            </ListItemButton>
+                                                                        </ListItem>
                                                                     );
                                                                 })}
                                                             </List>
                                                         </Collapse>
                                                     </>
-                                                ) : (
-                                                    <ListItemButton key={index}>
-                                                        <ListItemIcon>
-                                                            <item.icon onClick={handleCloseMenu} />
-                                                        </ListItemIcon>
-                                                        <ListItemText primary={item.title} />
-                                                    </ListItemButton>
-                                                )}
+                                                ) : ( */}
+                                                <ListItemButton
+                                                    onClick={handleCloseMenu}
+                                                    component={Link}
+                                                    to={item.path}
+                                                    key={index}
+                                                >
+                                                    <ListItemIcon>
+                                                        <item.icon onClick={handleCloseMenu} />
+                                                    </ListItemIcon>
+                                                    <ListItemText primary={item.title} />
+                                                </ListItemButton>
+                                                {/* ) */}
+                                                {/* } */}
                                             </Fragment>
                                         );
                                     })}

@@ -15,13 +15,13 @@ export default function BannerItem({ data, isBannerHome, isBannerDonation }) {
                 {(isBannerHome && (
                     <motion.div
                         style={{ background: '#33333380', transform: 'translateY(-50%, -50%)' }}
-                        className="absolute top-1/2 left-1/2 w-1/2 md:text-white p-5"
+                        className="absolute top-1/2 lg:left-1/2 md:left-3/4 w-1/2 left-1/4 text-white p-5"
                         initial={{ opacity: 0, y: -0, x: -400 }}
                         whileInView={{ opacity: 1, y: -100, x: -400 }}
                         transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
                     >
                         <h1 className="md:text-5xl">{title}</h1>
-                        <p className="md:text-xl md:mt-4 max-h-20 h-20 break-words whitespace-nowrap truncate ">
+                        <p className="md:text-xl md:mt-4 max-h-20 md:whitespace-pre-wrap h-20 break-words truncate line-clamp-2 md:line-clamp-none ">
                             {description}
                         </p>
                         <Button className="md:mt-5 md:w-1/4 text-white bg-gray-600 md:px-10 md:py-5" variant="text">
