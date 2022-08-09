@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './header.css';
 import { Fragment } from 'react';
 import {
@@ -12,6 +12,7 @@ import {
     ListItemText,
     Collapse,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 import HomeIcon from '@mui/icons-material/Home';
 import CoffeeIcon from '@mui/icons-material/Coffee';
@@ -87,6 +88,9 @@ const dataSubMenu = [
     },
 ];
 export default function Header({ path }) {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [path]);
     const [isHoverCategories, setIsHoverCategories] = useState(false);
     const [open, setOpen] = React.useState(false);
     const [openDraw, setOpenDraw] = React.useState(false);

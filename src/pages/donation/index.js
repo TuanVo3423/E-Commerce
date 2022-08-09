@@ -4,7 +4,6 @@ import MissionSection from '../../components/MissionSection';
 import DataDonation from '../../components/DataDonation';
 import DonateSection from '../../components/DonateSection';
 import { BannerDonate_1, sliderDonate_2 } from '../../assets/Image';
-import { maxHeight } from '@mui/system';
 const data = [
     {
         id: 1,
@@ -37,6 +36,7 @@ export default function Donation() {
             <div>
                 <DonateSection />
             </div>
+            
         </div>
     );
 }

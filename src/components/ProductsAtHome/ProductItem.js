@@ -3,11 +3,17 @@ import { Card, CardMedia, CardContent, CardActions, Typography } from '@mui/mate
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { motion } from 'framer-motion';
 
 export default function ProductItem({ data }) {
     const { productPicture, title, price, tag } = data;
     return (
-        <React.Fragment>
+        <motion.div
+            initial={{ opacity: 0, y: 0, x: 0 }}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: 'spring', duration: 2, bounce: 0.3 }}
+        >
             <Card sx={{ maxWidth: 319 }} className="text-center my-3 relative">
                 <CardMedia sx={{ height: '319px' }} component="img" image={productPicture} alt="Straws" />
                 <CardContent>
@@ -31,6 +37,6 @@ export default function ProductItem({ data }) {
                     <span className="p-3">{tag}</span>
                 </div>
             </Card>
-        </React.Fragment>
+        </motion.div>
     );
 }
