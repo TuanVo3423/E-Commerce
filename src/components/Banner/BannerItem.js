@@ -32,14 +32,14 @@ export default function BannerItem({ data, isBannerHome, isBannerDonation }) {
                     (isBannerDonation && id === 1 && (
                         <motion.div
                             style={{ transform: 'translateY( -50%)', left: '20%' }}
-                            className="absolute top-1/2 w-7/12 h-2/3 md:text-white p-5"
+                            className="absolute top-1/2 w-7/12 h-2/3 text-white p-5"
                         >
                             {/* whitespace-nowrap truncate  */}
                             <motion.h1
                                 initial={{ opacity: 0, y: 100, x: 0 }}
                                 whileInView={{ opacity: 1, y: 0, x: 0 }}
                                 transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
-                                className="md:text-2xl md:font-semibold"
+                                className="md:text-2xl md:font-semibold md:mb-0 mb-3 text-xl"
                             >
                                 {title}
                             </motion.h1>
@@ -47,7 +47,7 @@ export default function BannerItem({ data, isBannerHome, isBannerDonation }) {
                                 initial={{ opacity: 0, y: 100, x: 0 }}
                                 whileInView={{ opacity: 1, y: 0, x: 0 }}
                                 transition={{ type: 'spring', duration: 1.5, bounce: 0.3, delay: 1 }}
-                                className=" md:text-7xl md:mt-4 md:font-bold max-h-20 h-20 md:break-words"
+                                className=" md:text-7xl md:mt-4 md:font-bold text-2xl md:max-h-20 md:h-20 md:break-words"
                             >
                                 {description1}
                             </motion.p>
@@ -55,7 +55,7 @@ export default function BannerItem({ data, isBannerHome, isBannerDonation }) {
                                 initial={{ opacity: 0, y: 100, x: 0 }}
                                 whileInView={{ opacity: 1, y: 0, x: 0 }}
                                 transition={{ type: 'spring', duration: 1.5, bounce: 0.3, delay: 1 }}
-                                className=" md:text-7xl md:mt-4 md:font-bold max-h-20 h-20 md:break-words"
+                                className=" md:text-7xl md:mt-4 md:font-bold text-2xl md:max-h-20 md:h-20 md:break-words"
                             >
                                 {description2}
                             </motion.p>
@@ -66,10 +66,10 @@ export default function BannerItem({ data, isBannerHome, isBannerDonation }) {
                             >
                                 <Button
                                     endIcon={<ArrowCircleRightOutlinedIcon className="text-2xl font-bold" />}
-                                    className="md:mt-10 md:w-1/2 w-full md:px-10 md:py-6 text-white bg-orange-600"
+                                    className="md:mt-10 md:w-1/2 w-full md:px-10 md:py-6 py-3 mt-10 text-white bg-orange-600"
                                     variant="text"
                                 >
-                                    <p className="font-bold text-2xl">How You Can Help</p>
+                                    <p className="font-bold md:text-2xl sm:text-lg">How You Can Help</p>
                                 </Button>
                             </motion.div>
                         </motion.div>
@@ -77,14 +77,14 @@ export default function BannerItem({ data, isBannerHome, isBannerDonation }) {
                     (isBannerDonation && id === 2 && (
                         <motion.div
                             style={{ transform: 'translateY( -50%)' }}
-                            className="absolute top-1/2 right-0 w-1/2 h-2/3 md:text-white"
+                            className="absolute top-1/2 right-0  md:w-1/2 sm:w-3/4 h-2/3 text-white"
                         >
                             {/* whitespace-nowrap truncate  */}
                             <motion.h1
                                 initial={{ opacity: 0, y: 100, x: 0 }}
                                 whileInView={{ opacity: 1, y: 0, x: 0 }}
                                 transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
-                                className="md:text-2xl md:font-semibold"
+                                className="md:text-2xl md:font-semibold md:mb-0 mb-3 text-lg"
                             >
                                 {title}
                             </motion.h1>
@@ -92,7 +92,7 @@ export default function BannerItem({ data, isBannerHome, isBannerDonation }) {
                                 initial={{ opacity: 0, y: 100, x: 0 }}
                                 whileInView={{ opacity: 1, y: 0, x: 0 }}
                                 transition={{ type: 'spring', duration: 1.5, bounce: 0.3, delay: 1 }}
-                                className=" md:text-7xl md:mt-4 md:font-bold max-h-20 h-20 md:break-words"
+                                className="md:text-7xl md:mt-4 md:font-bold text-2xl md:max-h-20 md:h-20 md:break-words"
                             >
                                 {description1}
                             </motion.p>
@@ -100,7 +100,7 @@ export default function BannerItem({ data, isBannerHome, isBannerDonation }) {
                                 initial={{ opacity: 0, y: 100, x: 0 }}
                                 whileInView={{ opacity: 1, y: 0, x: 0 }}
                                 transition={{ type: 'spring', duration: 1.5, bounce: 0.3, delay: 1 }}
-                                className=" md:text-7xl md:mt-4 md:font-bold max-h-20 h-20 md:break-words"
+                                className="md:text-7xl md:mt-4 md:font-bold text-2xl md:max-h-20 md:h-20 md:break-words"
                             >
                                 {description2}
                             </motion.p>
@@ -111,10 +111,10 @@ export default function BannerItem({ data, isBannerHome, isBannerDonation }) {
                             >
                                 <Button
                                     endIcon={<ArrowCircleRightOutlinedIcon className="text-2xl" />}
-                                    className="md:mt-10 md:w-1/2 w-full md:px-10 md:py-6 text-white bg-orange-600"
+                                    className="md:mt-10 md:w-1/2 w-full md:px-10 md:py-6 py-3 mt-10 text-white bg-orange-600"
                                     variant="text"
                                 >
-                                    <p className="font-bold text-2xl">How You Can Help</p>
+                                    <p className="font-bold md:text-2xl sm:text-lg">How You Can Help</p>
                                 </Button>
                             </motion.div>
                         </motion.div>

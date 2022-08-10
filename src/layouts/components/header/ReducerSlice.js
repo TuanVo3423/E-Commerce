@@ -1,14 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
-    title: 'Home',
+    isCloseCart: true,
 };
 export const headerReducer = createSlice({
     name: 'header',
     initialState,
     reducers: {
         reset: () => initialState,
-        switchTab: (state, action) => {
-            state.title = action.payload;
+        VisibleCart: (state, action) => {
+            state.isCloseCart = action.payload;
+        },
+        HiddenModal: (state, action) => {
+            state.isCloseCart = action.payload;
         },
     },
 });

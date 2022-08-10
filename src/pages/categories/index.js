@@ -47,7 +47,6 @@ export default function Categories() {
     const handlePageChange = (event, page) => {
         const from = (page - 1) * pageSize;
         const to = (page - 1) * pageSize + pageSize;
-        console.log(from, to);
         setPagination({ ...pagination, from: from, to: to });
     };
     return (

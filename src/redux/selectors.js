@@ -1,1 +1,1 @@
-export const headerTitleSelector = (state) => state.header.title;
+export const headerCartSelector = (state) => state.header.isCloseCart;

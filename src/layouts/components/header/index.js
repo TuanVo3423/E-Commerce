@@ -10,21 +10,15 @@ import {
     List,
     ListItemButton,
     ListItemText,
-    Collapse,
-    ListItem,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 import HomeIcon from '@mui/icons-material/Home';
-import CoffeeIcon from '@mui/icons-material/Coffee';
 import CategoryIcon from '@mui/icons-material/Category';
 import MenuIcon from '@mui/icons-material/Menu';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import BakeryDiningOutlinedIcon from '@mui/icons-material/BakeryDiningOutlined';
 import AbcOutlinedIcon from '@mui/icons-material/AbcOutlined';
 import InfoIcon from '@mui/icons-material/Info';
 import LoginIcon from '@mui/icons-material/Login';
@@ -32,6 +26,10 @@ import { Logo } from '../../../assets/Image';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import routes from '../../../configs/routes';
+import CartProduct from '../../../components/Cart';
+import { useDispatch, useSelector } from 'react-redux';
+import { headerReducer } from './ReducerSlice';
+import { headerCartSelector } from '../../../redux/selectors';
 
 const data = [
     {
@@ -84,24 +82,16 @@ const dataMenu = [
         path: '/aboutUs',
     },
 ];
-// const dataSubMenu = [
-//     {
-//         icon: BakeryDiningOutlinedIcon,
-//         title: 'Straws',
-//         path: '/home',
-//     },
-//     {
-//         icon: CoffeeIcon,
-//         title: 'Cups',
-//         path: '/categories',
-//     },
-// ];
+
 export default function Header({ path }) {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [path]);
+    const dispath = useDispatch();
+
     const [isHoverCategories, setIsHoverCategories] = useState(false);
-    const [open, setOpen] = React.useState(false);
+    // const [isClose, setIsClose] = useState(true);
+    // const [open, setOpen] = React.useState(false);
     const [openDraw, setOpenDraw] = React.useState(false);
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('md'));
@@ -112,9 +102,13 @@ export default function Header({ path }) {
             },
         },
     });
-    const handleClickExpandSubMenu = () => {
-        setOpen(!open);
+    const handleOpenCart = () => {
+        dispath(headerReducer.actions.VisibleCart(false));
     };
+    // const handleClickExpandSubMenu = () => {
+    //     setOpen(!open);
+    // };
+
     const handleOpenDraw = () => {
         setOpenDraw(true);
     };
@@ -218,7 +212,7 @@ export default function Header({ path }) {
                                     />
                                 ))}
                             </Tabs>
-                            <AddShoppingCartIcon className="text-black ml-auto" />
+                            <AddShoppingCartIcon onClick={handleOpenCart} className="text-black ml-auto" />
                             <LoginIcon className="text-black ml-5" />
                         </Fragment>
                     ) : (
@@ -297,6 +291,7 @@ export default function Header({ path }) {
                     )}
                 </Toolbar>
             </AppBar>
+            <CartProduct />
         </ThemeProvider>
     );
 }

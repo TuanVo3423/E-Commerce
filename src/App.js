@@ -21,7 +21,6 @@ function App() {
         setIsLoading(false);
         return clearTimeout(time);
     }, 3000);
-    console.log(isLoading);
     return (
         <ThemeProvider theme={theme}>
             <BrowserRouter>
