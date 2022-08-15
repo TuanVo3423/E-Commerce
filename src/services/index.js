@@ -1,4 +1,13 @@
-import { RiceStraws } from '../assets/Image';
+import {
+    BannerDonate_1,
+    Banner_1,
+    Banner_2,
+    RiceStraws,
+    sliderDonate_2,
+    donate_card_1,
+    donate_card_2,
+    donate_card_3,
+} from '../assets/Image';
 
 const products = [
     {
@@ -204,3 +213,62 @@ const services = {
     },
 };
 export default services;
+
+export const dataDonation = [
+    {
+        id: 1,
+        title: 'Nature Foundation',
+        BannerPicture: BannerDonate_1,
+        description1: 'Give a little.',
+        description2: 'Change a lot.',
+    },
+    {
+        id: 2,
+        title: 'Community Foundation',
+        BannerPicture: sliderDonate_2,
+        description1: 'Why work for',
+        description2: 'a Charity',
+    },
+];
+export const dataHome = [
+    {
+        id: 1,
+        title: 'Save The Environment',
+        BannerPicture: Banner_1,
+        description:
+            'We need to start changing the world today, not tomorrow. We need to take action and stop complaining about the bad things currently',
+    },
+    {
+        id: 2,
+        title: 'Use eco-friendly products',
+        BannerPicture: Banner_2,
+        description:
+            'Are you trying to be green and eco-friendly, but do not know how you can save the environment is resources? Please reuse recyclable waste',
+    },
+];
+export const dataDonateCard = [
+    {
+        id: 1,
+        title: 'BẢO VỆ RỪNG',
+        Image: donate_card_1,
+        description:
+            'Những năm gần đây, diện tích rừng tự nhiên ở Việt Nam ngày càng giảm nhanh, chất lượng rừng suy thoái ảnh hưởng nặng nề đến đời sống của người dân , không những thế còn dẫn đến nguy cơ ô nhiễm môi trường cao.',
+        btnTitle: 'QUYÊN GÓP NGAY',
+    },
+    {
+        id: 2,
+        title: 'BẢO VỆ NƯỚC',
+        Image: donate_card_2,
+        description:
+            'Những năm gần đây, ô nhiễm nguồn nước đang là một trong những thách thức môi trường lớn nhất đối với Việt Nam. Tỉ lệ người dân không có nước sạch để uống và sinh hoạt cao đe dọa đến sức khỏe và sinh kế của hàng triệu người.',
+        btnTitle: 'QUYÊN GÓP NGAY',
+    },
+    {
+        id: 3,
+        title: 'BẢO VỆ RỪNG',
+        Image: donate_card_3,
+        description:
+            'Mỗi năm, hàng trăm ngàn tấn rác thải các loại được thải ra ảnh hưởng nghiêm trọng cho môi trường. Vì vậy, việc sử dụng sản phẩm tái chế từ túi nhựa, chai nước, giấy các loại... là biện pháp hiệu quả để bảo vệ môi trường chúng ta.',
+        btnTitle: 'QUYÊN GÓP NGAY',
+    },
+];

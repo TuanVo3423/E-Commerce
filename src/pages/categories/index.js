@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import ProductItem from '../../components/ProductsAtHome/ProductItem';
-import services from '../../services';
+import services  from '../../services';
 import {
     Checkbox,
     Collapse,
