@@ -31,9 +31,14 @@ export default function ProductsAtHome({ data }) {
             style={{ backgroundImage: Image && `url(${Image})`, color: Image || 'black' }}
         >
             <div className=" p-6 md:p-20 md:pt-12">
-                <div className="text-center mb-10">
+                <div className="text-center mb-5">
                     <p className="font-bold text-2xl mb-3">{title}</p>
-                    <p>{description}</p>
+                    <div className="w-full h-1 flex flex-row justify-center">
+                        <svg className="h-1 w-32 text-green-600" fill="currentColor">
+                            <rect width="100%" height="100%"></rect>
+                        </svg>
+                    </div>
+                    <p className="mt-2">{description}</p>
                 </div>
                 <motion.div
                     className="flex flex-row md:justify-evenly justify-center flex-wrap items-center"

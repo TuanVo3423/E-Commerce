@@ -31,38 +31,29 @@ function SamplePrevArrow(props) {
     );
 }
 
-export default function CarouselBanner({ data, isBannerHome, isBannerDonation }) {
+export default function CarouselBanner({ data }) {
     const theme = useTheme();
     const isDesktop = !useMediaQuery(theme.breakpoints.down('md'));
     const settings = {
         dots: false,
         infinite: true,
-        speed: 500,
+        speed: 1500,
         autoplay: true,
         autoplaySpeed: 5000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        nextArrow: isDesktop && isBannerHome && <SampleNextArrow />,
-        prevArrow: isDesktop && isBannerHome && <SamplePrevArrow />,
+        nextArrow: isDesktop && <SampleNextArrow />,
+        prevArrow: isDesktop && <SamplePrevArrow />,
     };
     // false
 
     return (
         <div>
-            {(isBannerHome && (
-                <Slider {...settings}>
-                    {data.map((item) => (
-                        <BannerItem key={item.id} data={item} isBannerHome />
-                    ))}
-                </Slider>
-            )) ||
-                (isBannerDonation && (
-                    <Slider {...settings}>
-                        {data.map((item) => (
-                            <BannerItem key={item.id} data={item} isBannerDonation />
-                        ))}
-                    </Slider>
+            <Slider {...settings}>
+                {data.map((item) => (
+                    <BannerItem key={item.id} data={item} />
                 ))}
+            </Slider>
         </div>
     );
 }

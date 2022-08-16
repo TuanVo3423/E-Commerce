@@ -233,17 +233,17 @@ export const dataDonation = [
 export const dataHome = [
     {
         id: 1,
-        title: 'Save The Environment',
+        title: 'Thay đổi thế giới',
         BannerPicture: Banner_1,
         description:
-            'We need to start changing the world today, not tomorrow. We need to take action and stop complaining about the bad things currently',
+            'Chúng ta cần bắt đầu thay đổi thế giới ngay hôm nay, không phải ngày mai. Chúng ta cần phải hành động và ngừng phàn nàn về những điều tồi tệ hiện tại để chúng ta có cơ hội làm cho chúng tốt hơn. Hãy cùng chung tay với chúng tôi?',
     },
     {
         id: 2,
-        title: 'Use eco-friendly products',
+        title: 'Tái sử dụng, vì tiềm năng của rác là vô hạn',
         BannerPicture: Banner_2,
         description:
-            'Are you trying to be green and eco-friendly, but do not know how you can save the environment is resources? Please reuse recyclable waste',
+            'Bạn đang cố gắng trở nên xanh và thân thiện với môi trường, nhưng không biết làm thế nào bạn có thể tiết kiệm tài nguyên của môi trường? Hãy tái sử dụng rác thải có thể tái chế.',
     },
 ];
 export const dataDonateCard = [

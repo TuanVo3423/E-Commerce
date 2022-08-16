@@ -1,124 +1,30 @@
-import { Button } from '@mui/material';
 import React from 'react';
 import { motion } from 'framer-motion';
-import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
+import './index.css';
 
-export default function BannerItem({ data, isBannerHome, isBannerDonation }) {
-    const { id, BannerPicture, title, description, description1, description2 } = data;
+export default function BannerItem({ data }) {
+    const { BannerPicture, title, description } = data;
     return (
         <div className="BannerHeight relative">
             <div className="h-full w-full ">
                 <div className="w-full h-full">
                     <BannerPicture className="h-full w-full object-cover" />
                 </div>
-
-                {(isBannerHome && (
-                    <motion.div
-                        style={{ background: '#33333380', transform: 'translateY(-50%, -50%)' }}
-                        className="absolute top-1/2 lg:left-1/2 md:left-3/4 w-1/2 left-1/4 text-white p-5"
-                        initial={{ opacity: 0, y: -0, x: -400 }}
-                        whileInView={{ opacity: 1, y: -100, x: -400 }}
-                        transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
-                    >
-                        <h1 className="md:text-5xl">{title}</h1>
-                        <p className="md:text-xl md:mt-4 max-h-20 md:whitespace-pre-wrap h-20 break-words truncate line-clamp-2 md:line-clamp-none ">
-                            {description}
-                        </p>
-                        <Button className="md:mt-5 md:w-1/4 text-white bg-gray-600 md:px-10 md:py-5" variant="text">
-                            MORE
-                        </Button>
-                    </motion.div>
-                )) ||
-                    (isBannerDonation && id === 1 && (
-                        <motion.div
-                            style={{ transform: 'translateY( -50%)', left: '20%' }}
-                            className="absolute top-1/2 w-7/12 h-2/3 text-white p-5"
-                        >
-                            {/* whitespace-nowrap truncate  */}
-                            <motion.h1
-                                initial={{ opacity: 0, y: 100, x: 0 }}
-                                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                                transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
-                                className="md:text-2xl md:font-semibold md:mb-0 mb-3 text-xl"
-                            >
-                                {title}
-                            </motion.h1>
-                            <motion.p
-                                initial={{ opacity: 0, y: 100, x: 0 }}
-                                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                                transition={{ type: 'spring', duration: 1.5, bounce: 0.3, delay: 1 }}
-                                className=" md:text-7xl md:mt-4 md:font-bold text-2xl md:max-h-20 md:h-20 md:break-words"
-                            >
-                                {description1}
-                            </motion.p>
-                            <motion.p
-                                initial={{ opacity: 0, y: 100, x: 0 }}
-                                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                                transition={{ type: 'spring', duration: 1.5, bounce: 0.3, delay: 1 }}
-                                className=" md:text-7xl md:mt-4 md:font-bold text-2xl md:max-h-20 md:h-20 md:break-words"
-                            >
-                                {description2}
-                            </motion.p>
-                            <motion.div
-                                initial={{ opacity: 0, y: 100, x: 0 }}
-                                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                                transition={{ type: 'spring', duration: 1.5, bounce: 0.3, delay: 2 }}
-                            >
-                                <Button
-                                    endIcon={<ArrowCircleRightOutlinedIcon className="text-2xl font-bold" />}
-                                    className="md:mt-10 md:w-1/2 w-full md:px-10 md:py-6 py-3 mt-10 text-white bg-orange-600"
-                                    variant="text"
-                                >
-                                    <p className="font-bold md:text-2xl sm:text-lg">How You Can Help</p>
-                                </Button>
-                            </motion.div>
-                        </motion.div>
-                    )) ||
-                    (isBannerDonation && id === 2 && (
-                        <motion.div
-                            style={{ transform: 'translateY( -50%)' }}
-                            className="absolute top-1/2 right-0  md:w-1/2 sm:w-3/4 h-2/3 text-white"
-                        >
-                            {/* whitespace-nowrap truncate  */}
-                            <motion.h1
-                                initial={{ opacity: 0, y: 100, x: 0 }}
-                                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                                transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
-                                className="md:text-2xl md:font-semibold md:mb-0 mb-3 text-lg"
-                            >
-                                {title}
-                            </motion.h1>
-                            <motion.p
-                                initial={{ opacity: 0, y: 100, x: 0 }}
-                                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                                transition={{ type: 'spring', duration: 1.5, bounce: 0.3, delay: 1 }}
-                                className="md:text-7xl md:mt-4 md:font-bold text-2xl md:max-h-20 md:h-20 md:break-words"
-                            >
-                                {description1}
-                            </motion.p>
-                            <motion.p
-                                initial={{ opacity: 0, y: 100, x: 0 }}
-                                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                                transition={{ type: 'spring', duration: 1.5, bounce: 0.3, delay: 1 }}
-                                className="md:text-7xl md:mt-4 md:font-bold text-2xl md:max-h-20 md:h-20 md:break-words"
-                            >
-                                {description2}
-                            </motion.p>
-                            <motion.div
-                                initial={{ opacity: 0, y: 100, x: 0 }}
-                                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                                transition={{ type: 'spring', duration: 1.5, bounce: 0.3, delay: 2 }}
-                            >
-                                <Button
-                                    endIcon={<ArrowCircleRightOutlinedIcon className="text-2xl" />}
-                                    className="md:mt-10 md:w-1/2 w-full md:px-10 md:py-6 py-3 mt-10 text-white bg-orange-600"
-                                    variant="text"
-                                >
-                                    <p className="font-bold md:text-2xl sm:text-lg">How You Can Help</p>
-                                </Button>
-                            </motion.div>
-                        </motion.div>
-                    ))}
+            </div>
+            <div className=" absolute w-full h-full top-0 left-0 my-auto m-auto flex">
+                <motion.div
+                    style={{ background: '#33333380', minHeight: '400px' }}
+                    className=" w-3/4  m-auto text-white p-5 py-4 px-8"
+                    initial={{ opacity: 0, y: 200, x: 0 }}
+                    whileInView={{ opacity: 1, y: 0, x: 0 }}
+                    transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
+                >
+                    <h1 className="md:text-5xl md:py-5 text-3xl font-bold text-white">{title}</h1>
+                    <p className="md:text-xl py-5 md:mt-4 mt-2 md:whitespace-pre-wrap break-words ">{description}</p>
+                    <button className="md:mt-20 MoreBtn" variant="text">
+                        TÌM HIỂU THÊM
+                    </button>
+                </motion.div>
             </div>
         </div>
     );

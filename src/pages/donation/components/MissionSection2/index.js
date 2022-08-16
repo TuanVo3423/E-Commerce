@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import './index.css';
 import React from 'react';
-import { dataDonateCard } from '../../services';
+import { dataDonateCard } from '../../../../services';
 
 export default function MissionSection2() {
     return (

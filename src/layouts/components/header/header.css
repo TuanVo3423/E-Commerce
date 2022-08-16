@@ -24,3 +24,13 @@
         top: 100%;
     }
 }
+.buttonLoginAtNav {
+    width: 100%;
+    color: #fff;
+    border-radius: 0;
+    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
+    border: none;
+    box-shadow: 0 1px 8px #69db7c;
+    padding: 1.5rem;
+    transition: all 0.4s ease;
+}

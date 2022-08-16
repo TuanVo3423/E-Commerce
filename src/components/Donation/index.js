@@ -1,55 +1,15 @@
 import React, { useRef, useState } from 'react';
+import './index.css';
 import { motion } from 'framer-motion';
 import { Button } from '@mui/material';
+const dataMount = ['50K', '100K', '200K', '500K', '1000K'];
 
 export default function DonationSection({ isAtHome, isAtDonation }) {
-    const href1 = useRef(null);
-    const href2 = useRef(null);
-    const href3 = useRef(null);
-    const href4 = useRef(null);
-    const href5 = useRef(null);
-    const [donationMount, setDonationMount] = useState('');
-    const handleChooseMount1 = (e) => {
-        setDonationMount(e.target.innerText);
-        e.target.style.backgroundColor = 'green';
-        href2.current.style.backgroundColor = 'none';
-        href3.current.style.backgroundColor = 'none';
-        href4.current.style.backgroundColor = 'none';
-        href5.current.style.backgroundColor = 'none';
+    const [donationMount, setDonationMount] = useState();
+    const handleChooseMount = (index) => {
+        setDonationMount(index);
     };
-    const handleChooseMount2 = (e) => {
-        setDonationMount(e.target.innerText);
-        e.target.style.backgroundColor = 'green';
-        href1.current.style.backgroundColor = 'none';
-        href3.current.style.backgroundColor = 'none';
-        href4.current.style.backgroundColor = 'none';
-        href5.current.style.backgroundColor = 'none';
-    };
-    const handleChooseMount3 = (e) => {
-        setDonationMount(e.target.innerText);
-        e.target.style.backgroundColor = 'green';
-        href1.current.style.backgroundColor = 'none';
-        href2.current.style.backgroundColor = 'none';
-        href4.current.style.backgroundColor = 'none';
-        href5.current.style.backgroundColor = 'none';
-    };
-    const handleChooseMount4 = (e) => {
-        setDonationMount(e.target.innerText);
-        e.target.style.backgroundColor = 'green';
-        href1.current.style.backgroundColor = 'none';
-        href3.current.style.backgroundColor = 'none';
-        href2.current.style.backgroundColor = 'none';
-        href5.current.style.backgroundColor = 'none';
-    };
-    const handleChooseMount5 = (e) => {
-        setDonationMount(e.target.innerText);
-        e.target.style.backgroundColor = 'green';
-        href1.current.style.backgroundColor = 'none';
-        href3.current.style.backgroundColor = 'none';
-        href4.current.style.backgroundColor = 'none';
-        href2.current.style.backgroundColor = 'none';
-    };
-    console.log(href1);
+
     return (
         <React.Fragment>
             {(isAtHome && (
@@ -90,9 +50,7 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                 viewport={{ once: true }}
                                 transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
                             >
-                                <Button className="bg-black p-4 mt-8" variant="container">
-                                    QUYÊN GÓP NGAY
-                                </Button>
+                                <button className="MoreBtn mt-5">QUYÊN GÓP</button>
                             </motion.div>
                         </motion.div>
                     </div>
@@ -138,41 +96,19 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                     transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
                                 >
                                     <div className="flex md:flex-row justify-between  p-5 w-3/4 mx-auto">
-                                        <div
-                                            ref={href1}
-                                            onClick={handleChooseMount1}
-                                            className="w-1/6 py-3  text-black text-lg bg-white hover:bg-green-500 hover:text-white"
-                                        >
-                                            50K
-                                        </div>
-                                        <div
-                                            ref={href2}
-                                            onClick={handleChooseMount2}
-                                            className="w-1/6 py-3  text-black text-lg bg-white hover:bg-green-500 hover:text-white"
-                                        >
-                                            100K
-                                        </div>
-                                        <div
-                                            ref={href3}
-                                            onClick={handleChooseMount3}
-                                            className="w-1/6 py-3  text-black text-lg bg-white hover:bg-green-500 hover:text-white"
-                                        >
-                                            200K
-                                        </div>
-                                        <div
-                                            ref={href4}
-                                            onClick={handleChooseMount4}
-                                            className="w-1/6  py-3 text-black text-lg bg-white hover:bg-green-500 hover:text-white"
-                                        >
-                                            500K
-                                        </div>
-                                        <div
-                                            ref={href5}
-                                            onClick={handleChooseMount5}
-                                            className="w-1/6 py-3  text-black text-lg bg-white hover:bg-green-500 hover:text-white"
-                                        >
-                                            1000K
-                                        </div>
+                                        {dataMount.map((item, index) => {
+                                            return (
+                                                <div
+                                                    key={index}
+                                                    onClick={() => handleChooseMount(index)}
+                                                    className={`w-1/6 py-3 text-black text-lg bg-white hover:bg-green-500 hover:text-white ${
+                                                        donationMount === index ? 'isChoosed' : ''
+                                                    }`}
+                                                >
+                                                    {item}
+                                                </div>
+                                            );
+                                        })}
                                     </div>
                                 </motion.div>
                                 <motion.div
