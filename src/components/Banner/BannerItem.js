@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './index.css';
 
 export default function BannerItem({ data }) {
     const { BannerPicture, title, description } = data;

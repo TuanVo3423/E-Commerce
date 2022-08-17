@@ -217,17 +217,17 @@ export default services;
 export const dataDonation = [
     {
         id: 1,
-        title: 'Nature Foundation',
-        BannerPicture: BannerDonate_1,
-        description1: 'Give a little.',
-        description2: 'Change a lot.',
+        title: 'Bảo vệ môi trường',
+        BannerPicture: Banner_1,
+        description:
+            'Cùng chung tay bảo vệ môi trường vì tương lai của thế giới, hãy giữ lấy màu xanh và làm sạch môi trường.',
     },
     {
         id: 2,
-        title: 'Community Foundation',
-        BannerPicture: sliderDonate_2,
-        description1: 'Why work for',
-        description2: 'a Charity',
+        title: 'Cùng chung tay quyên góp bảo vệ môi trường',
+        BannerPicture: Banner_2,
+        description:
+            'Giúp đỡ lẫn nhau thực hiện các nhu cầu cơ bản của sự sống còn của con người, đấu tranh bảo tồn các nguồn tài nguyên thiên nhiên và chung tay.',
     },
 ];
 export const dataHome = [
@@ -265,7 +265,7 @@ export const dataDonateCard = [
     },
     {
         id: 3,
-        title: 'BẢO VỆ RỪNG',
+        title: 'SẢN PHẨM TÁI CHẾ',
         Image: donate_card_3,
         description:
             'Mỗi năm, hàng trăm ngàn tấn rác thải các loại được thải ra ảnh hưởng nghiêm trọng cho môi trường. Vì vậy, việc sử dụng sản phẩm tái chế từ túi nhựa, chai nước, giấy các loại... là biện pháp hiệu quả để bảo vệ môi trường chúng ta.',

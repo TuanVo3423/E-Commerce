@@ -157,7 +157,7 @@ export default function SlideProducts() {
         ],
     };
     return (
-        <div className="lg:px-20 lg:pt-12 md:p-8 pt-5  md:mb-5 slideProducts">
+        <div className="lg:p-12 md:p-12 p-10 slideProducts">
             <div className="text-center mb-5">
                 <p className="font-bold text-2xl mb-3">SẢN PHẨM MỚI</p>
                 <div className="w-full h-1 flex flex-row justify-center">
@@ -167,7 +167,7 @@ export default function SlideProducts() {
                 </div>
                 <p className="mt-2">Những sản phẩm mới sẽ luôn được cập nhật ở đây</p>
             </div>
-            <div className="relative w-full h-full md:p-4 p-12">
+            <div className="relative w-full h-full lg:py-2 lg:px-10 md:p-0">
                 <Slider {...settings}>
                     {data.map((item) => (
                         <ProductItem key={item.id} data={item} />

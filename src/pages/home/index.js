@@ -3,7 +3,6 @@ import CarouselBanner from '../../components/Banner';
 import SlideProducts from './components/Slider';
 import FeaturedProducts from './components/FeaturedProducts';
 import CommonProduct from './components/CommonProducts';
-// import DonateHome from '../../components/DonateHome';
 import DonationSection from '../../components/Donation';
 import { dataHome } from '../../services';
 

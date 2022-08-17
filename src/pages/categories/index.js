@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ProductItem from '../../components/ProductsAtHome/ProductItem';
-import services  from '../../services';
+import services from '../../services';
+import LeftCategories from './LeftCategories';
+import { useViewport } from '../../hooks/useViewPort';
 import {
     Checkbox,
     Collapse,
@@ -16,6 +18,7 @@ import { ExpandLess, ExpandMore } from '@mui/icons-material';
 const pageSize = 9;
 
 export default function Categories() {
+    const { isDesktop, isTablet } = useViewport();
     // count : số lượng phần tử
     const [pagination, setPagination] = useState({
         count: 0,
@@ -49,11 +52,12 @@ export default function Categories() {
         setPagination({ ...pagination, from: from, to: to });
     };
     return (
-        <div className="w-full h-full my-auto md:px-20 md:py-12 p-5">
+        <div className="w-full h-full my-auto lg:px-20 lg:py-12 md:py-12 p-2">
             <div className="flex md:flex-row w-full h-full flex-col justify-center">
                 {/* Sidebar phan loai */}
-                <div className="md:w-1/4 w-full flex flex-col md:pr-8">
-                    <div className="   w-full h-full md:pr-10 md:border-solid md:border-r-4 md:border-gray-100">
+                <div className="md:w-1/4 w-full flex flex-col md:pr-0 pr-0">
+                    <LeftCategories />
+                    {/* <div className="   w-full h-full md:pr-10 md:border-solid md:border-r-4 md:border-gray-100">
                         <div className="text-2xl mb-4 text-black font-semibold">Phân loại sản phẩm</div>
                         <List className="w-full">
                             <ListItemButton className="px-0" onClick={handleClickCategories}>
@@ -100,7 +104,7 @@ export default function Categories() {
                                 <FormGroup></FormGroup>
                             </Collapse>
                         </List>
-                    </div>
+                    </div> */}
                 </div>
                 {/* Danh sach san pham */}
                 <div className="md:w-3/4 w-full flex flex-col">
@@ -108,14 +112,14 @@ export default function Categories() {
                         <p className="text-2xl mb-4 text-black font-semibold">Danh sách sản phẩm</p>
                     </div>
                     {/* danh sach san pham */}
-                    <div className="flex flex-row flex-wrap justify-between">
+                    <div className="flex flex-row flex-wrap md:justify-between justify-center">
                         {data.map((item) => (
-                            <ProductItem key={item.id} data={item} />
+                            <ProductItem className={' md:w-1/2 lg:w-1/3 mb-4 px-2'} key={item.id} data={item} />
                         ))}
                     </div>
                 </div>
             </div>
-            <div className="w-full mt-4">
+            {/* <div className="w-full mt-4">
                 <Stack className="w-1/2 mx-auto" spacing={2}>
                     <Pagination
                         className="flex flex-row justify-center"
@@ -124,7 +128,7 @@ export default function Categories() {
                         onChange={handlePageChange}
                     />
                 </Stack>
-            </div>
+            </div> */}
         </div>
     );
 }
