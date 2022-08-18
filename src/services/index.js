@@ -1,12 +1,12 @@
 import {
-    BannerDonate_1,
     Banner_1,
     Banner_2,
     RiceStraws,
-    sliderDonate_2,
     donate_card_1,
     donate_card_2,
     donate_card_3,
+    Banner_Donate_1,
+    Banner_Donate_2,
 } from '../assets/Image';
 
 const products = [
@@ -218,14 +218,14 @@ export const dataDonation = [
     {
         id: 1,
         title: 'Bảo vệ môi trường',
-        BannerPicture: Banner_1,
+        BannerPicture: Banner_Donate_2,
         description:
             'Cùng chung tay bảo vệ môi trường vì tương lai của thế giới, hãy giữ lấy màu xanh và làm sạch môi trường.',
     },
     {
         id: 2,
         title: 'Cùng chung tay quyên góp bảo vệ môi trường',
-        BannerPicture: Banner_2,
+        BannerPicture: Banner_Donate_1,
         description:
             'Giúp đỡ lẫn nhau thực hiện các nhu cầu cơ bản của sự sống còn của con người, đấu tranh bảo tồn các nguồn tài nguyên thiên nhiên và chung tay.',
     },

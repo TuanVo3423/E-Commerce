@@ -1,5 +1,7 @@
 import React from 'react';
 import { useViewport } from '../../hooks/useViewPort';
+import { motion } from 'framer-motion';
+import { filterTypeVariants } from '../../utils/types';
 import './index.css';
 
 export default function LeftCategories() {
@@ -60,8 +62,14 @@ export default function LeftCategories() {
                     )}
                 </p>
                 {/* dropdown */}
-                <div className={` ${openFilterByCategories ? 'h-auto' : 'h-0'} overflow-hidden `}>
-                    <ul className="flex flex-col flex-wrap ">
+                <motion.div
+                    variants={filterTypeVariants}
+                    initial={false}
+                    animate={openFilterByCategories ? 'visible' : 'hidden'}
+                    style={{ overflow: 'hidden' }}
+                    className={` ${openFilterByCategories ? 'h-auto' : 'h-0'} overflow-hidden `}
+                >
+                    <ul style={{ transition: 'all .4s ease' }} className="flex flex-col flex-wrap ">
                         <li className="bg-white text-gray-500 w-full text-sm flex my-2 items-center ">
                             <input type={'checkbox'} className="checkboxInput mr-3 cursor-pointer"></input>
                             <label className="cursor-pointer ">Vải</label>
@@ -91,7 +99,7 @@ export default function LeftCategories() {
                             <label className="cursor-pointer ">Chai</label>
                         </li>
                     </ul>
-                </div>
+                </motion.div>
             </div>
 
             {/* fill by price */}

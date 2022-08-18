@@ -1,5 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { motion } from 'framer-motion';
+import { inViewDropupShow } from '../../../../utils/types';
 import { RiceStraws } from '../../../../assets/Image';
 import ProductItem from '../../../../components/ProductsAtHome/ProductItem';
 import { PrevIcon } from '../../../../assets/Image';
@@ -73,13 +75,12 @@ const data = [
     },
 ];
 function SampleNextArrow(props) {
-    console.log(props);
     const { style, onClick } = props;
     return (
         <div
             className={`absolute top-1/2 ${
                 props.isDesktop ? '-left-14' : 'left-0'
-            } bg-white text-black block mr-0 z-30`}
+            } bg-white hover:border-gray-500 hover:border cursor-pointer text-black block mr-0 z-30`}
             style={{
                 ...style,
                 borderRadius: '50%',
@@ -101,7 +102,7 @@ function SamplePrevArrow(props) {
         <div
             className={`absolute top-1/2 ${
                 props.isDesktop ? '-right-14' : 'right-0'
-            }  bg-white text-black block mr-0 z-30`}
+            }  bg-white hover:border-gray-500 hover:border cursor-pointer text-black block mr-0 z-30`}
             style={{
                 ...style,
                 borderRadius: '50%',
@@ -124,8 +125,8 @@ export default function SlideProducts() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: 4,
+        slidesToScroll: 1,
         adaptiveHeight: true,
         variableWidth: true,
         nextArrow: <SamplePrevArrow isDesktop={isDesktop} />,
@@ -167,13 +168,19 @@ export default function SlideProducts() {
                 </div>
                 <p className="mt-2">Những sản phẩm mới sẽ luôn được cập nhật ở đây</p>
             </div>
-            <div className="relative w-full h-full lg:py-2 lg:px-10 md:p-0">
+            <motion.div
+                variants={inViewDropupShow}
+                initial={'hidden'}
+                whileInView={'visible'}
+                viewport={{ once: true }}
+                className="relative w-full h-full lg:py-5 lg:px-12 md:p-0"
+            >
                 <Slider {...settings}>
                     {data.map((item) => (
-                        <ProductItem key={item.id} data={item} />
+                        <ProductItem key={item.id} data={item} isAtHome />
                     ))}
                 </Slider>
-            </div>
+            </motion.div>
         </div>
     );
 }

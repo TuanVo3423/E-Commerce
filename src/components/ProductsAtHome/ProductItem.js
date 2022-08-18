@@ -1,18 +1,19 @@
 import React from 'react';
 import './index.css';
+import { motion } from 'framer-motion';
+import { inViewScaleChildShow, categoryItemShow } from '../../utils/types';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { motion } from 'framer-motion';
 
-export default function ProductItem({ data, className }) {
+export default function ProductItem({ data, className, isAtHome, isAtCategory }) {
     const { productPicture, title, price, tag, type } = data;
     return (
         <motion.div
-            initial={{ opacity: 0, y: 0, x: 0 }}
-            whileInView={{ opacity: 1, y: 0, x: 0 }}
+            variants={(isAtHome && inViewScaleChildShow) || (isAtCategory && categoryItemShow)}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ type: 'spring', duration: 2, bounce: 0.3 }}
             className={className}
         >
             <div className="w-full inline-block py-4 px-2">

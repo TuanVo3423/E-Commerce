@@ -3,8 +3,6 @@ import { Card, CardMedia, CardContent, CardActions, Typography } from '@mui/mate
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import ProductItem from '../ProductsAtHome/ProductItem';
-import { RiceStraws } from '../../assets/Image';
 
 export default function SliderItem() {
     return (

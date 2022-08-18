@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useViewport } from '../../../hooks/useViewPort';
 import { Link } from 'react-router-dom';
-import './header.css';
+import { motion } from 'framer-motion';
+import { filterTypeVariants } from '../../../utils/types';
 // const dataTitleNav = ['Trang chủ', 'Danh mục', 'Quyên góp', 'Về chúng tôi'];
 const dataTitleNav = [
     {
@@ -247,8 +248,11 @@ export default function Header2() {
                                                     </svg>
                                                 </div>
                                             </div>
-                                            <div
+                                            <motion.div
                                                 style={{ transition: 'all .5s cubic-bezier(.19,1,.22,1)' }}
+                                                variants={filterTypeVariants}
+                                                initial={false}
+                                                animate={isShowSubCategories ? 'visible' : 'hidden'}
                                                 className={`${
                                                     isShowSubCategories ? 'h-full' : 'h-0'
                                                 }  overflow-hidden  flex font-bold mx-auto items-center justify-center flex-col`}
@@ -282,7 +286,7 @@ export default function Header2() {
                                                 <a className="text-white py-2 px-2" href="/">
                                                     <span>KHÁC</span>
                                                 </a>
-                                            </div>
+                                            </motion.div>
                                         </div>
                                     </div>
                                     {/*  */}
@@ -316,7 +320,7 @@ export default function Header2() {
                                         href="/"
                                         className="w-1/2 text-black mx-auto"
                                     >
-                                        <button className="buttonLoginAtNav text-green-700 font-semibold text-xl py-3 ">
+                                        <button className="buttonLoginAtNavAndDonate text-green-700 font-semibold text-xl py-3 ">
                                             LOGIN
                                         </button>
                                     </a>

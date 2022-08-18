@@ -1,33 +1,46 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { useTheme } from '@mui/system';
+import { PrevIconBanner, NextIconBanner } from '../../assets/Image';
 import { useMediaQuery } from '@mui/material';
 import BannerItem from './BannerItem';
 
 function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
+    const { style, onClick } = props;
+    // ${
+    //     props.isDesktop ? '-left-14' : 'left-0'
+    // }
     return (
         <div
-            className={className}
+            className={`absolute top-1/2 cursor-pointer text-white text-7xl opacity-50 hover:opacity-100 block left-4 z-30`}
             style={{
                 ...style,
-                display: 'block',
-                marginRight: '80px',
-                zIndex: '30',
+                borderRadius: '50%',
+                transition: 'all .25s ease',
+                transform: 'translateY(-50%)',
             }}
             onClick={onClick}
-        ></div>
+        >
+            <PrevIconBanner />
+        </div>
     );
 }
 
 function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
+    const { style, onClick } = props;
     return (
         <div
-            className={className}
-            style={{ ...style, display: 'block', marginLeft: '50px', zIndex: '30' }}
+            className={`absolute top-1/2 cursor-pointer text-white text-7xl opacity-50 hover:opacity-100 block right-4 z-30`}
+            style={{
+                ...style,
+                borderRadius: '50%',
+                transition: 'all .25s ease',
+                transform: 'translateY(-50%)',
+            }}
             onClick={onClick}
-        />
+        >
+            <NextIconBanner />
+        </div>
     );
 }
 
@@ -42,8 +55,8 @@ export default function CarouselBanner({ data }) {
         autoplaySpeed: 5000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        nextArrow: isDesktop && <SampleNextArrow />,
-        prevArrow: isDesktop && <SamplePrevArrow />,
+        nextArrow: isDesktop && <SamplePrevArrow />,
+        prevArrow: isDesktop && <SampleNextArrow />,
     };
     // false
 

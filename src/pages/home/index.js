@@ -8,7 +8,7 @@ import { dataHome } from '../../services';
 
 export default function Home() {
     return (
-        // Khung cua Carousel
+        // Khung Carousel
         <React.Fragment>
             <div>
                 <CarouselBanner data={dataHome} />

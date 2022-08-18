@@ -1,32 +1,15 @@
 import ProductItem from './ProductItem';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useAnimation } from 'framer-motion';
-import { useEffect } from 'react';
+import { inViewScaleParentShow } from '../../utils/types';
 export default function ProductsAtHome({ data }) {
+    const { inView, ref } = useInView({
+        threshold: 0.2,
+    });
     const { dataProduct, title, description, Image } = data;
-    const { ref, inView } = useInView();
-    const animation = useAnimation();
-    useEffect(() => {
-        if (inView) {
-            animation.start({
-                x: 0,
-                transition: {
-                    type: 'string',
-                    duration: 1,
-                    bounce: 0.3,
-                },
-            });
-        }
-        if (!inView) {
-            animation.start({
-                x: '-100vw',
-            });
-        }
-    }, [inView]);
+
     return (
         <div
-            ref={ref}
             className="w-full h-full bg-no-repeat bg-cover bg-center bg-fixed text-white"
             style={{ backgroundImage: Image && `url(${Image})`, color: Image || 'black' }}
         >
@@ -41,14 +24,15 @@ export default function ProductsAtHome({ data }) {
                     <p className="mt-2">{description}</p>
                 </div>
                 <motion.div
+                    ref={ref}
                     className="flex flex-row md:justify-evenly justify-center flex-wrap items-center"
-                    initial={{ x: '-1000' }}
-                    whileInView={{ x: 0 }}
+                    variants={inViewScaleParentShow}
+                    initial={'hidden'}
+                    animate={inView && 'visible'}
                     viewport={{ once: true }}
-                    transition={{ type: 'spring', duration: 1, bounce: 0.3 }}
                 >
                     {dataProduct.map((item) => (
-                        <ProductItem key={item.id} data={item} />
+                        <ProductItem key={item.id} data={item} isAtHome />
                     ))}
                 </motion.div>
             </div>
