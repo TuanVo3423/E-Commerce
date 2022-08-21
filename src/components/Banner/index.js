@@ -1,15 +1,11 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { useTheme } from '@mui/system';
 import { PrevIconBanner, NextIconBanner } from '../../assets/Image';
-import { useMediaQuery } from '@mui/material';
 import BannerItem from './BannerItem';
+import { useViewport } from '../../hooks/useViewPort';
 
 function SampleNextArrow(props) {
     const { style, onClick } = props;
-    // ${
-    //     props.isDesktop ? '-left-14' : 'left-0'
-    // }
     return (
         <div
             className={`absolute top-1/2 cursor-pointer text-white text-7xl opacity-50 hover:opacity-100 block left-4 z-30`}
@@ -45,8 +41,7 @@ function SamplePrevArrow(props) {
 }
 
 export default function CarouselBanner({ data }) {
-    const theme = useTheme();
-    const isDesktop = !useMediaQuery(theme.breakpoints.down('md'));
+    const { isDesktop } = useViewport();
     const settings = {
         dots: false,
         infinite: true,

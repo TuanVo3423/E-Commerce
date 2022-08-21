@@ -13,7 +13,7 @@ export default function ProductsAtHome({ data }) {
             className="w-full h-full bg-no-repeat bg-cover bg-center bg-fixed text-white"
             style={{ backgroundImage: Image && `url(${Image})`, color: Image || 'black' }}
         >
-            <div className=" p-6 md:p-20 md:pt-12">
+            <div className=" p-6 lg:p-20 lg:pt-12 md:px-4 md:py-20">
                 <div className="text-center mb-5">
                     <p className="font-bold text-2xl mb-3">{title}</p>
                     <div className="w-full h-1 flex flex-row justify-center">

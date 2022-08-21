@@ -206,9 +206,14 @@ export default function Header2() {
                                             style={{ transition: 'all .5s ease' }}
                                             className="w-3/4 text-white flex font-semibold text-xl  py-6 mx-auto relative cursor-pointer items-center justify-center"
                                         >
-                                            <a href="/" style={{ transition: 'all ease .4s' }} className="text-white ">
+                                            <Link
+                                                to={'/'}
+                                                onClick={handleClickMenuBtn}
+                                                style={{ transition: 'all ease .4s' }}
+                                                className="text-white "
+                                            >
                                                 TRANG CHỦ
-                                            </a>
+                                            </Link>
                                         </div>
                                         {/*  */}
                                     </div>
@@ -219,13 +224,14 @@ export default function Header2() {
                                                 style={{ transition: 'all .5s ease' }}
                                                 className="w-3/4 text-white flex font-semibold text-xl py-6 mx-auto  items-center justify-center relative"
                                             >
-                                                <a
+                                                <Link
+                                                    onClick={handleClickMenuBtn}
+                                                    to={'/categories'}
                                                     style={{ transition: 'all ease .4s' }}
                                                     className="text-white"
-                                                    href="/"
                                                 >
                                                     DANH MỤC
-                                                </a>
+                                                </Link>
                                                 <div className="overflow-hidden h-0" onClick={handleClickCategories}>
                                                     <svg
                                                         style={{ transform: 'translateY(-50%)' }}
@@ -295,9 +301,14 @@ export default function Header2() {
                                             style={{ transition: 'all .5s ease' }}
                                             className="w-3/4 text-white flex font-semibold text-xl  py-6 mx-auto relative cursor-pointer items-center justify-center"
                                         >
-                                            <a href="/" style={{ transition: 'all ease .4s' }} className="text-white ">
+                                            <Link
+                                                onClick={handleClickMenuBtn}
+                                                to={'/donation'}
+                                                style={{ transition: 'all ease .4s' }}
+                                                className="text-white "
+                                            >
                                                 QUYÊN GÓP
-                                            </a>
+                                            </Link>
                                         </div>
                                         {/*  */}
                                     </div>
@@ -307,9 +318,13 @@ export default function Header2() {
                                             style={{ transition: 'all .5s ease' }}
                                             className="w-3/4 text-white flex font-semibold text-xl  py-6 mx-auto relative cursor-pointer items-center justify-center"
                                         >
-                                            <a href="/" style={{ transition: 'all ease .4s' }} className="text-white ">
+                                            <Link
+                                                to={'/aboutUs'}
+                                                style={{ transition: 'all ease .4s' }}
+                                                className="text-white "
+                                            >
                                                 VỀ CHÚNG TÔI
-                                            </a>
+                                            </Link>
                                         </div>
                                         {/*  */}
                                     </div>

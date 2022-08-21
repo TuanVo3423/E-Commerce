@@ -116,17 +116,21 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                             viewport={{ once: true }}
                                             transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
                                         >
-                                            <div className="flex md:flex-row md:justify-between justify-center flex-wrap p-5 w-3/4 mx-auto">
+                                            <div className="flex md:flex-row justify-center flex-wrap p-5 w-3/4 mx-auto">
                                                 {dataMount.map((item, index) => {
                                                     return (
                                                         <div
+                                                            className="lg:w-1/6 w-1/2 p-2"
                                                             key={index}
                                                             onClick={() => handleChooseMount(index)}
-                                                            className={`md:w-1/6 w-1/3 py-3 cursor-pointer text-black text-lg font-semibold bg-white hover:bg-green-500 hover:text-white ${
-                                                                donationMountID === index ? 'isChoosed' : ''
-                                                            }`}
                                                         >
-                                                            {item}K
+                                                            <div
+                                                                className={`cursor-pointer p-3 text-black text-lg font-semibold bg-white hover:bg-green-500 hover:text-white ${
+                                                                    donationMountID === index ? 'isChoosed' : ''
+                                                                }`}
+                                                            >
+                                                                {item}K
+                                                            </div>
                                                         </div>
                                                     );
                                                 })}
@@ -168,7 +172,7 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                 className="modal opacity-100 fixed top-0 bottom-0 left-0 right-0 z-50 h-screen w-screen flex items-center justify-center "
                             >
                                 {/* title */}
-                                <div className="relative bg-white p-12 text-center">
+                                <div className="relative w-screen md:w-auto bg-white p-12 text-center">
                                     <div className="mb-6">
                                         <p className="font-semibold text-xl">Thông tin của bạn</p>
                                     </div>
@@ -176,8 +180,8 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                     {/* form */}
                                     <form>
                                         {/* row1 */}
-                                        <div className="flex mb-3 ">
-                                            <div className="w-1/2 p-3">
+                                        <div className="flex md:flex-row flex-col mb-3 ">
+                                            <div className="md:w-1/2 w-full p-3">
                                                 <input
                                                     type={'text'}
                                                     className="inputModal rounded-none text-xl font-medium  px-3 py-2 focus:border-green-500"
@@ -185,7 +189,7 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                                     name="lastName"
                                                 ></input>
                                             </div>
-                                            <div className="w-1/2 p-3">
+                                            <div className="md:w-1/2 w-full p-3">
                                                 <input
                                                     style={{ transition: 'all .2s ease-in-out' }}
                                                     type={'text'}
@@ -196,7 +200,7 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                             </div>
                                         </div>
                                         <div>
-                                            <div className="px-3 pb-3">
+                                            <div className="md:px-3  px-5 pb-3">
                                                 <input
                                                     style={{ transition: 'all .2s ease-in-out' }}
                                                     type={'text'}
@@ -207,7 +211,7 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                             </div>
                                         </div>
                                         <div>
-                                            <div className="px-3 pb-3">
+                                            <div className="md:px-3 px-5 pb-3">
                                                 <input
                                                     style={{ transition: 'all .2s ease-in-out' }}
                                                     type={'text'}

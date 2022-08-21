@@ -158,7 +158,7 @@ export default function SlideProducts() {
         ],
     };
     return (
-        <div className="lg:p-12 md:p-12 p-10 slideProducts">
+        <div className="lg:p-11 md:p-12 p-10 slideProducts">
             <div className="text-center mb-5">
                 <p className="font-bold text-2xl mb-3">SẢN PHẨM MỚI</p>
                 <div className="w-full h-1 flex flex-row justify-center">

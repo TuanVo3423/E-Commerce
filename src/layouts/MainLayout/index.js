@@ -26,7 +26,7 @@ export default function MainLayout({ children, path }) {
             {isLoading && <SwitchPage />}
             {!isLoading && (
                 <React.Fragment>
-                    <div className="mt-20 w-full flex flex-col">{children}</div>
+                    <div className="mt-20 w-full h-full">{children}</div>
                     <Footer />
                 </React.Fragment>
             )}
