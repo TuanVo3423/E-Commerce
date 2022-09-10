@@ -1,0 +1,17 @@
+.checkboxInput {
+    border-color: rgb(122, 122, 122);
+    background-color: red;
+    margin: 0;
+    font: inherit;
+    color: var(--dark);
+    width: 18px;
+    height: 18px;
+    border: 1px solid black;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+.boderRight {
+    border-right: 3.5px solid rgb(247, 247, 247);
+}

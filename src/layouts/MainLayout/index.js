@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../components/header';
+// import Header from '../components/header';
+import Header2 from '../components/header/Header2';
 import { SwitchPage } from '../../components/ScreenPlay';
 import Footer from '../components/footer';
 export default function MainLayout({ children, path }) {
@@ -20,12 +21,12 @@ export default function MainLayout({ children, path }) {
 
     return (
         <div className="h-full w-full flex flex-col items-center overflow-x-hidden">
-            <Header path={path} />
+            <Header2 path={path} />
             {/* body */}
             {isLoading && <SwitchPage />}
             {!isLoading && (
                 <React.Fragment>
-                    <div className="mt-20 w-full flex flex-col">{children}</div>
+                    <div className="mt-20 w-full h-full">{children}</div>
                     <Footer />
                 </React.Fragment>
             )}

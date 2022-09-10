@@ -8,7 +8,7 @@
 }
 .card-donate:hover:before {
     content: '';
-    border-color: transparent transparent transparent rgb(19, 131, 19);
+    border-color: transparent transparent transparent #40bf57;
 }
 .card-donate::before {
     content: '';

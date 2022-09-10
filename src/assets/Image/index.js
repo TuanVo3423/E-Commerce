@@ -37,6 +37,36 @@ export const NextvIcon = () => {
         </svg>
     );
 };
+export const PrevIconBanner = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256">
+            <rect width="256" height="256" fill="none"></rect>
+            <polyline
+                points="160 208 80 128 160 48"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+            ></polyline>
+        </svg>
+    );
+};
+export const NextIconBanner = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256">
+            <rect width="256" height="256" fill="none"></rect>
+            <polyline
+                points="96 48 176 128 96 208"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+            ></polyline>
+        </svg>
+    );
+};
 export const Banner_1 = ({ className }) => {
     return (
         <img
@@ -70,6 +100,13 @@ export const sliderDonate_2 = ({ className }) => {
 export const RiceStraws =
     'https://firebasestorage.googleapis.com/v0/b/bwdd-3dc88.appspot.com/o/images%2FOng-hut-bot-gao-0?alt=media&token=5f37b297-a09a-4001-b53f-9e5340784f00';
 
+// donation banner
+export const Banner_Donate_1 = ({ className }) => {
+    return <img className={className} alt="Banner1" src="https://bwd2022.vercel.app/assets/donate-1.jpg"></img>;
+};
+export const Banner_Donate_2 = ({ className }) => {
+    return <img className={className} alt="Banner1" src="https://bwd2022.vercel.app/assets/donate-3.webp"></img>;
+};
 // donate card
 export const donate_card_1 = () => {
     return (

@@ -1,12 +1,12 @@
 import {
-    BannerDonate_1,
     Banner_1,
     Banner_2,
     RiceStraws,
-    sliderDonate_2,
     donate_card_1,
     donate_card_2,
     donate_card_3,
+    Banner_Donate_1,
+    Banner_Donate_2,
 } from '../assets/Image';
 
 const products = [
@@ -217,33 +217,33 @@ export default services;
 export const dataDonation = [
     {
         id: 1,
-        title: 'Nature Foundation',
-        BannerPicture: BannerDonate_1,
-        description1: 'Give a little.',
-        description2: 'Change a lot.',
+        title: 'Bảo vệ môi trường',
+        BannerPicture: Banner_Donate_2,
+        description:
+            'Cùng chung tay bảo vệ môi trường vì tương lai của thế giới, hãy giữ lấy màu xanh và làm sạch môi trường.',
     },
     {
         id: 2,
-        title: 'Community Foundation',
-        BannerPicture: sliderDonate_2,
-        description1: 'Why work for',
-        description2: 'a Charity',
+        title: 'Cùng chung tay quyên góp bảo vệ môi trường',
+        BannerPicture: Banner_Donate_1,
+        description:
+            'Giúp đỡ lẫn nhau thực hiện các nhu cầu cơ bản của sự sống còn của con người, đấu tranh bảo tồn các nguồn tài nguyên thiên nhiên và chung tay.',
     },
 ];
 export const dataHome = [
     {
         id: 1,
-        title: 'Save The Environment',
+        title: 'Thay đổi thế giới',
         BannerPicture: Banner_1,
         description:
-            'We need to start changing the world today, not tomorrow. We need to take action and stop complaining about the bad things currently',
+            'Chúng ta cần bắt đầu thay đổi thế giới ngay hôm nay, không phải ngày mai. Chúng ta cần phải hành động và ngừng phàn nàn về những điều tồi tệ hiện tại để chúng ta có cơ hội làm cho chúng tốt hơn. Hãy cùng chung tay với chúng tôi?',
     },
     {
         id: 2,
-        title: 'Use eco-friendly products',
+        title: 'Tái sử dụng, vì tiềm năng của rác là vô hạn',
         BannerPicture: Banner_2,
         description:
-            'Are you trying to be green and eco-friendly, but do not know how you can save the environment is resources? Please reuse recyclable waste',
+            'Bạn đang cố gắng trở nên xanh và thân thiện với môi trường, nhưng không biết làm thế nào bạn có thể tiết kiệm tài nguyên của môi trường? Hãy tái sử dụng rác thải có thể tái chế.',
     },
 ];
 export const dataDonateCard = [
@@ -265,7 +265,7 @@ export const dataDonateCard = [
     },
     {
         id: 3,
-        title: 'BẢO VỆ RỪNG',
+        title: 'SẢN PHẨM TÁI CHẾ',
         Image: donate_card_3,
         description:
             'Mỗi năm, hàng trăm ngàn tấn rác thải các loại được thải ra ảnh hưởng nghiêm trọng cho môi trường. Vì vậy, việc sử dụng sản phẩm tái chế từ túi nhựa, chai nước, giấy các loại... là biện pháp hiệu quả để bảo vệ môi trường chúng ta.',

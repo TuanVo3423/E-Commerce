@@ -24,40 +24,77 @@ body {
     --color-3: #f4b266;
 }
 .slick-prev::before {
-    content: '\2190';
-    font-size: 50px;
-    color: white;
+    content: none;
 }
 .slick-next::before {
-    content: '→';
-    font-size: 50px;
-    color: white;
+    content: none;
 }
-.slideProducts .slick-prev::before {
-    content: '';
-    color: transparent;
+// .slideProducts .slick-prev::before {
+//     content: '';
+//     color: transparent;
+// }
+// .slideProducts .slick-next::before {
+//     content: '';
+//     color: transparent;
+// }
+// .slideProducts .slick-slide {
+//     width: 335px;
+//     display: inline-block;
+// }
+// @media screen and (max-width: 600px) {
+//     .slideProducts .slick-prev {
+//         top: 43%;
+//         z-index: 30;
+//     }
+//     .slideProducts .slick-next {
+//         top: 43%;
+//         z-index: 30;
+//     }
+//     .slideProducts .slick-slide {
+//         padding: 0;
+//     }
+// }
+.slick-dots > li button:before {
+    color: #8ce99a !important;
+    transition: all 0.5s ease;
 }
-.slideProducts .slick-next::before {
-    content: '';
-    color: transparent;
+.slick-dots .slick-active button:before {
+    color: #8ce99a !important;
+    font-size: 10px;
+    transition: all 0.5s ease;
 }
-@media screen and (max-width: 600px) {
-    .slideProducts .slick-prev {
-        top: 43%;
-        left: -20px;
-        margin-left: 0;
-        z-index: 30;
-    }
-    .slideProducts .slick-next {
-        right: 10px;
-        top: 43%;
-        z-index: 30;
-    }
-}
-.slideProducts .slick-slide {
-    display: inline-block;
-    margin: 0 11px;
-}
+
 .BannerHeight {
     height: calc(100vh - 80px);
+}
+// MORE BTN IS USED FOR BANNER AND DONATION
+.MoreBtn {
+    min-width: 200px;
+    width: 200px;
+    height: auto;
+    color: #fff !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+    padding: 1rem 2rem;
+    transition: 0.5s;
+    background-color: black;
+    background-image: linear-gradient(to right, #232526 0%, #414345 51%, #232526 100%); 
+    background-size: 200% auto;
+}
+.MoreBtn:hover {
+    background-position: right center;
+    color: #fff !important;
+}
+//
+.buttonLoginAtNavAndDonate {
+    width: 100%;
+    color: #fff;
+    border-radius: 0;
+    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
+    border: none;
+    box-shadow: 0 1px 8px #69db7c;
+    padding: 1.5rem;
+    transition: all 0.4s ease;
 }

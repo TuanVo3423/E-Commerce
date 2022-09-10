@@ -1,0 +1,20 @@
+.product-card {
+    transition: all 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 6px;
+    box-shadow: #00000029 0 1px 4px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.hoverProduct img {
+    overflow: hidden;
+    transition: all 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 6px;
+    box-shadow: #00000029 0 1px 4px;
+    background-color: #fff;
+}
+.hoverProduct:hover img {
+    transform: scale(1.1);
+}
+.test {
+    padding: 1rem 0.5rem;
+}
