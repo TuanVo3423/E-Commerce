@@ -67,7 +67,7 @@ export default function Header2() {
                                     className="flex items-center relative px-4 text-center"
                                 >
                                     <Link to={item.path}>
-                                        <span className="ml-2 font-bold text-lg text-green-600 tracking-wide">
+                                        <span className="ml-2 font-bold text-lg text-gray-700 tracking-wide">
                                             {item.title}
                                         </span>
                                         {isActiveNavBar === index && (
