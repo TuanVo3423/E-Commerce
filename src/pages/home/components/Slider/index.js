@@ -169,10 +169,10 @@ export default function SlideProducts() {
                 <p className="mt-2">Những sản phẩm mới sẽ luôn được cập nhật ở đây</p>
             </div>
             <motion.div
-                variants={inViewDropupShow}
-                initial={'hidden'}
-                whileInView={'visible'}
-                viewport={{ once: true }}
+                    variants={inViewDropupShow}
+                    initial={'hidden'}
+                    whileInView={'visible'}
+                    viewport={{ once: true }}
                 className="relative w-full h-full lg:py-5 lg:px-12 md:p-0"
             >
                 <Slider {...settings}>

@@ -3,5 +3,6 @@ const routes = {
     categories: '/categories',
     donation: '/donation',
     aboutUs: '/aboutUs',
+    donationRanking: '/ranking',
 };
 export default routes;

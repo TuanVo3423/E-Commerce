@@ -1,6 +1,6 @@
 import React from 'react';
 import CarouselBanner from '../../components/Banner';
-import MissionSection2 from './components/MissionSection2';
+import MissionSection from './components/MissionSection';
 import DonateAction from './components/DonateAction';
 import DonationSection from '../../components/Donation';
 import { dataDonation } from '../../services';
@@ -12,7 +12,7 @@ export default function Donation() {
                 <CarouselBanner data={dataDonation} isBannerDonation />
             </div>
             <div>
-                <MissionSection2 />
+                <MissionSection />
             </div>
             <div>
                 <DonateAction />

@@ -1,7 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
 import SliderAboutItem from './components/SliderItem';
-import { useViewport } from '../../hooks/useViewPort';
 import './index.css';
 import { NextIconBanner, PrevIconBanner } from '../../assets/Image';
 const members = [
@@ -81,11 +80,10 @@ function SamplePrevArrow(props) {
 }
 
 export default function AboutUs() {
-    const { isMobile } = useViewport();
     const settings = {
         customPaging: function (i) {
             return (
-                <div className="dots ">
+                <div className="dots">
                     <figure className="image">
                         <img src={members[i].image} alt="" />
                     </figure>
@@ -96,8 +94,8 @@ export default function AboutUs() {
         speed: 700,
         slidesToShow: 1,
         slidesToScroll: 1,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
+        nextArrow: <SamplePrevArrow />,
+        prevArrow: <SampleNextArrow />,
         autoplay: true,
         autoplaySpeed: 5000,
         dots: true,
@@ -106,7 +104,7 @@ export default function AboutUs() {
         <div className="w-full heightWrap">
             <div
                 style={{ backgroundImage: `url(https://bwd2022.vercel.app/assets/aboutme.png)` }}
-                className="aboutme-wrap relative w-full h-auto px-12 bg-cover bg-no-repeat"
+                className="aboutme-wrap relative w-full h-full px-12 bg-cover bg-no-repeat"
             >
                 <Slider className="h-full" {...settings}>
                     {members.map((item, index) => (

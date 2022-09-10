@@ -6,9 +6,9 @@ import '../index.css';
 
 export default function SliderAboutItem({ data }) {
     const { name, role, description, facebook, github, instagram, image } = data;
-    const { isDesktop } = useViewport();
+    const { isDesktop, isTablet } = useViewport();
     return (
-        <div className={`${isDesktop ? 'about-item' : 'h-screen'} w-full`}>
+        <div className={`${isDesktop || isTablet ? 'about-item' : 'h-full'} w-full`}>
             <div className="flex md:flex-row flex-col h-full w-full">
                 <div className="md:w-1/2 md:h-full w-full h-1/2 md:p-3">
                     <div className="h-full flex flex-col md:justify-center justify-start md:items-end items-center md:text-end text-center">
@@ -32,7 +32,7 @@ export default function SliderAboutItem({ data }) {
                         </div>
                     </div>
                 </div>
-                <div className="md:w-1/2 md:h-full w-full h-1/2 md:p-3 p-3">
+                <div className="md:w-1/2 md:h-full w-full h-full md:p-3 p-3">
                     <div className="h-full w-full flex items-center">
                         <div className="about-image-member md:w-3/4 md:h-90/100 w-full h-full">
                             <img className="h-full w-full object-cover" src={image} alt="member1"></img>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { donateFormVariant } from '../../utils/types';
 import './index.css';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 const dataMount = [50, 100, 200, 500, 1000];
 
 export default function DonationSection({ isAtHome, isAtDonation }) {
@@ -9,7 +10,6 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
     const [isOpenDonationModal, setIsOpenDonationModal] = useState(false);
     // const [mountDonate, setmountDonate] = useState();
     const handleChooseMount = (index) => {
-        // setmountDonate(index);
         setDonationMountID(index);
     };
     const handleOpenDonationModal = () => {
@@ -55,7 +55,9 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                 viewport={{ once: true }}
                                 transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
                             >
-                                <button className="MoreBtn mt-5">QUYÊN GÓP</button>
+                                <Link to='/donation'>
+                                    <button className="MoreBtn mt-5">QUYÊN GÓP</button>
+                                </Link>
                             </motion.div>
                         </motion.div>
                     </div>
@@ -144,7 +146,7 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                         >
                                             <button
                                                 onClick={handleOpenDonationModal}
-                                                className="buttonLoginAtNavAndDonate w-full md:w-1/2 font-bold text-base mx-auto"
+                                                className="buttonLoginAtNavAndDonate p-4 md:p-6 w-3/4 md:w-1/2 font-bold text-base mx-auto"
                                             >
                                                 QUYÊN GÓP NGAY
                                             </button>
@@ -156,9 +158,12 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                             transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
                                             className="mt-3"
                                         >
-                                            <a href="/" className="text-base italic text-green-500 hover:underline">
+                                            <Link
+                                                to={'/ranking'}
+                                                className="text-base italic text-green-500 hover:underline"
+                                            >
                                                 Xem danh sách
-                                            </a>
+                                            </Link>
                                         </motion.div>
                                     </motion.div>
                                 </div>
@@ -180,27 +185,27 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                     {/* form */}
                                     <form>
                                         {/* row1 */}
-                                        <div className="flex md:flex-row flex-col mb-3 ">
-                                            <div className="md:w-1/2 w-full p-3">
+                                        <div className="flex md:flex-row flex-col md:mb-3 mb-0">
+                                            <div className="md:w-1/2 w-full my-3 ml-0 md:mr-3 md:my-0">
                                                 <input
                                                     type={'text'}
-                                                    className="inputModal rounded-none text-xl font-medium  px-3 py-2 focus:border-green-500"
+                                                    className="inputModal w-full rounded-none text-xl font-medium  px-3 py-2 focus:border-green-500"
                                                     placeholder="Họ"
                                                     name="lastName"
                                                 ></input>
                                             </div>
-                                            <div className="md:w-1/2 w-full p-3">
+                                            <div className="md:w-1/2 w-full">
                                                 <input
                                                     style={{ transition: 'all .2s ease-in-out' }}
                                                     type={'text'}
-                                                    className="inputModal rounded-none text-xl font-medium  px-3 py-2 focus:border-green-500"
+                                                    className="inputModal w-full rounded-none text-xl font-medium  px-3 py-2 focus:border-green-500"
                                                     placeholder="Tên"
                                                     name="firstName"
                                                 ></input>
                                             </div>
                                         </div>
                                         <div>
-                                            <div className="md:px-3  px-5 pb-3">
+                                            <div className="my-3">
                                                 <input
                                                     style={{ transition: 'all .2s ease-in-out' }}
                                                     type={'text'}
@@ -211,7 +216,7 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                             </div>
                                         </div>
                                         <div>
-                                            <div className="md:px-3 px-5 pb-3">
+                                            <div className=" my-3">
                                                 <input
                                                     style={{ transition: 'all .2s ease-in-out' }}
                                                     type={'text'}
@@ -231,9 +236,7 @@ export default function DonationSection({ isAtHome, isAtDonation }) {
                                         </span>
                                     </div>
                                     <div className="mt-4">
-                                        <button style={{ width: '35%' }} className="MoreBtn">
-                                            QUYÊN GÓP NGAY
-                                        </button>
+                                        <button className="MoreBtn md:w-1/2 w-2/3">QUYÊN GÓP NGAY</button>
                                     </div>
                                     {/* X close */}
                                     <div
